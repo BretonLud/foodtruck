@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'utilisateur{% endblock %}
+
+{% block body %}
+    <h1>Modifier l'utilisateur</h1>
+    {{ form_start(userForm) }}
+        {{ form_row(userForm.email) }}
+        {{ form_row(userForm.roles) }}
+        {{ form_row(userForm.Valider) }}
+        {{ form_row(userForm.Supprimer) }}
+    {{ form_end(userForm) }}
+{% endblock %}

@@ -1,0 +1,22 @@
+<div class="card mb-4">
+    <div class="card-body">
+        {% if produit.base64 %}
+            <img src="{{ produit.base64 }}" alt="card-img-top"
+                 style="width: 100%;
+            height:
+            auto">
+        {% endif %}
+        <h5 class="card-title">
+            <a href="{{ path('produit_show', {slug: produit.slug, id: produit.id}) }}">
+                {{ produit.name }}
+            </a>
+        </h5>
+        <p class="card-text">{{ produit.description }}</p>
+        <p>Catégorie(s): {% for option in produit.options %}{{ option.name }} {%
+                endfor %}</p>
+        <div class="text-primary" style="font-size: 2rem; font-weight: bold">
+            {{ produit.prix }} €
+        </div>
+        <a href="{{ path("cart_add", {id: produit.id}) }}">Ajouter</a>
+    </div>
+</div>

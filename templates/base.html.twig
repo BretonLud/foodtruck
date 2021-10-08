@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+
+    </head>
+    <header>
+        <nav>
+            <div class="nav">
+                <div class="menu">
+                    <ul id="menu" class="nav__ul">
+                        <li class="logo_img"> <a href="{{ path('indexpage') }}" class="lien">Accueil</a></li>
+                        <li> <a href="{{ path('produit')}}" id="1" class="lien">Notre carte</a> </li>
+                        <li> <a href="{{ path('cart_index') }}">Panier</a>  </li>
+                        <li> <a href="#contact" id="4" class="lien">Contact</a> </li>
+                        <li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('admin_index') }}">Administration</a>
+                            {% endif %}
+                            {% if is_granted('ROLE_MODO') %}
+                                <a href="{{ path('admin_produits_index') }}">Modération</a>
+                            {% endif %}
+                            {# {% if is_granted('ROLE_USER') %}
+                                <a href="{{ path('profil') }}">Mon compte</a>
+                            {% endif %} #}
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</html>

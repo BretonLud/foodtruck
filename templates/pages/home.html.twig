@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    {% if app.user%}
+        You are logged in as {{ app.user.email }}
+        <a href="{{ path('app_logout') }}" >Se déconnecter</a>
+    {% else %}
+        <form action="/login">
+            <button type="submit">Se connecter</button>
+        </form>
+    {% endif %}
+
+    <h1>Nos derniers produits</h1>
+
+    <div class="container">
+        <h2>Nos nouveautés</h2>
+        <div class="row flex">
+            {% for produit in produits %}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path('produit_show', {id: produit.id, slug: produit.slug}) }}">{{
+                                    produit.name }}</a>
+                            </h5>
+                            <div class="col">
+                                {% if produit.base64 %}
+                                    <img src="{{ produit.base64 }}" alt="img"
+                                         style="width: 100%;
+                                    height:
+                                    auto">
+                                {% endif %}
+                            </div>
+                            <p class="card-text">{{ produit.description }}</p>
+                            <div class="text-primary" style="font-weight: bold; font-size: 2rem;">{{ produit.prix }}
+                                €</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

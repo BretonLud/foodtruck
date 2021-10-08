@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block title produit.name %}
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            <div class="row">
+                <div class="col-md-8">
+                    {% if produit.base64 %}
+                        <img src="{{ produit.base64 }}" alt="img"
+                             style="width: 100%;
+                height:
+                auto">
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+                    <h1>{{ produit.name }}</h1>
+                    <div class="text-primary" style="font-size: 4rem; font-weight: bold;"> {{ produit.prix }} €</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <p>
+            {{ produit.description | nl2br}}
+        </p>
+            <div class="col-md-4">
+                <h2>Catégories</h2>
+                <ul class="list-group">
+                    {% for option in produit.options %}
+                    <li class="list-group-item">{{ option.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
