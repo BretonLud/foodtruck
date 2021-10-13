@@ -1,9 +1,14 @@
 {% extends "base.html.twig" %}
 
+{% block stylesheets %}
+    {{ encore_entry_link_tags('menu') }}
+{% endblock %}
 {% block title 'Notre carte'%}
 
 {% block body %}
 
+
+    <div id="root"></div>
             {#
             <div class="jumbotron">
                 <div class="container">
@@ -28,7 +33,7 @@
                    </div>
             </div>
             #}
-        <div class="container mt-4">
+        {#<div class="container mt-4">
             <h1 class="mb-4">Voir notre carte</h1>
 
             <div class="row">
@@ -40,6 +45,34 @@
             </div>
             {# <div class="navigation">
                 {{ knp_pagination_render(properties,'property/pagination.html.twig') }}
-            </div> #}
-        </div> 
+            </div>
+        </div> #}
+{% endblock %}
+
+{% block javascripts %}
+
+
+     <script>
+        window.REP_LOG_APP_PROPS = {
+            itemOptions: [
+                    {% for produit in produits %}
+                    {
+                        id: {{ produit.id }},
+                        name: "{{produit.name}}",
+                        description: "{{produit.description}}", 
+                        price: {{produit.prix}},
+                        image: "{{produit.base64}}",
+                        category: [ {% for option in produit.options %}
+                         "{{option.name}}",
+                    {% endfor %} ]
+                    },
+                    {% endfor %}
+            ],
+        }
+    </script>
+
+
+    {{ encore_entry_script_tags('menu') }}
+
+
 {% endblock %}

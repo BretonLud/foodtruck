@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/option")
+ * @Route("/admin/option", name="admin_")
  */
 class AdminOptionController extends AbstractController
 {
     /**
-     * @Route("/", name="admin_option_index", methods={"GET"})
+     * @Route("/", name="option_index", methods={"GET"})
      */
     public function index(OptionRepository $optionRepository): Response
     {
@@ -26,7 +26,7 @@ class AdminOptionController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="admin_option_new", methods={"GET","POST"})
+     * @Route("/new", name="option_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -49,7 +49,7 @@ class AdminOptionController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="admin_option_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="option_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Option $option): Response
     {
@@ -69,7 +69,7 @@ class AdminOptionController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/delete", name="admin_option_delete")
+     * @Route("/{id}/delete", name="option_delete")
      */
     public function delete(Request $request, Option $option): Response
     {

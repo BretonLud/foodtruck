@@ -12,10 +12,9 @@
         </form>
     {% endif %}
 
-    <h1>Nos derniers produits</h1>
-
     <div class="container">
         <h2>Nos nouveautés</h2>
+        <div id="root"></div>
         <div class="row flex">
             {% for produit in produits %}
                 <div class="col-3">
@@ -35,11 +34,13 @@
                             </div>
                             <p class="card-text">{{ produit.description }}</p>
                             <div class="text-primary" style="font-weight: bold; font-size: 2rem;">{{ produit.prix }}
-                                €</div>
+                                €</div>                               
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}
 {% endblock %}

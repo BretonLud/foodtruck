@@ -8,10 +8,14 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
-
-
-    </head>
-    <header>
+        {{ encore_entry_script_tags('app') }}
+        {% block javascripts %}
+            
+            
+        {% endblock %}
+    </head> 
+    <body>
+      <header>
         <nav>
             <div class="nav">
                 <div class="menu">
@@ -37,10 +41,13 @@
             </div>
         </nav>
     </header>
-    <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        
+        {% endblock %}
+        <footer>
+        
+        </footer>
+
     </body>
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
-    {% endblock %}
+    
 </html>

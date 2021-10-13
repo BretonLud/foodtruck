@@ -19,9 +19,14 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "@stripe/react-stripe-js": "^1.6.0",
+        "@stripe/stripe-js": "^1.19.1",
+        "axios": "^0.23.0",
         "prop-types": "^15.7.2",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "react-stripe-checkout": "^2.6.3",
+        "web-vitals": "^2.1.1",
         "webpack-dev-server": "^4.3.1"
     }
 }
