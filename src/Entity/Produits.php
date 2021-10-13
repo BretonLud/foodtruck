@@ -67,10 +67,16 @@ class Produits
      */
     private $prix;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="produits")
+     */
+    private $orders;
+
     public function __construct()
     {
         $this->created_at = new \DateTime();
         $this->options = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -212,5 +218,35 @@ class Produits
 
         return (new Slugify())->slugify($this->name);
 
+    }
+
+    /**
+     * @return Collection|Order[]
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(Order $order): self
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders[] = $order;
+            $order->setProduits($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(Order $order): self
+    {
+        if ($this->orders->removeElement($order)) {
+            // set the owning side to null (unless already changed)
+            if ($order->getProduits() === $this) {
+                $order->setProduits(null);
+            }
+        }
+
+        return $this;
     }
 }

@@ -9,6 +9,12 @@
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword.first) }}
         {{ form_row(registrationForm.plainPassword.second) }}
+        <fieldset class="sweet-candy">
+                {{ form_row(registrationForm.Postal_code)}}
+        </fieldset>
+        <fieldset class="sweet-candy">
+                {{ form_row(registrationForm.Address)}}
+        </fieldset>
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
 {% endblock %}

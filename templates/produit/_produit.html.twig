@@ -1,4 +1,5 @@
-<div class="card mb-4">
+<div class="card mb-4 {% for option in produit.options %}{{ option.name }} {%
+    endfor %}">
     <div class="card-body">
         {% if produit.base64 %}
             <img src="{{ produit.base64 }}" alt="card-img-top"
