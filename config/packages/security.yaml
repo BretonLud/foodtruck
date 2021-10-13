@@ -41,5 +41,6 @@ security:
          - { path: ^/profil, roles: ROLE_USER }
 
     role_hierarchy:
+
         ROLE_ABONNE: ROLE_USER
         ROLE_ADMIN: ROLE_ABONNE, ROLE_MODO
