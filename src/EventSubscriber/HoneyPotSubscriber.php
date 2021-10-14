@@ -3,6 +3,7 @@
 namespace App\EventSubscriber;
 
 
+use App\Entity\Produits;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
@@ -37,7 +38,7 @@ class HoneyPotSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function checkHoneyJar(FormEvent $event): void
+    public function checkHoneyJar(FormEvent $event, Produits $produits): void
     {
         $request = $this->requestStack->getCurrentRequest();
 
@@ -58,7 +59,7 @@ class HoneyPotSubscriber implements EventSubscriberInterface
 
         if ($birthday !== "" || $adress !== ""){
             $this->honeyPotLogger->info("Une potentielle tentative de robot spammeur ayant l'adresse ip 
-            '{$request->getClientIp()}' a eu lieu. 
+            '{$request->getClientIp()}' a eu lieu.
             Le champ Birthday contenait '{$birthday}' et le champ Adresse contenait '{$adress}'.");
             throw new HttpException(403, "On t'a vu Mr le bot");
         }

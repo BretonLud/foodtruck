@@ -17,6 +17,7 @@ class ProfilController extends AbstractController
      */
     public function index(): Response
     {
+        $form = $this->createForm();
         return $this->render('profil/index.html.twig');
     }
 
