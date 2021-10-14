@@ -4,8 +4,9 @@ namespace App\Controller;
 
 
 
+use App\Entity\Order;
 use App\Entity\Produits;
-use App\Notification\ContactNotification;
+use App\Entity\User;
 use App\Repository\ProduitsRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,6 +25,17 @@ Class ProduitController extends AbstractController{
      */
     private $em;
 
+    /**
+     * @var StripeService
+     */
+    protected $stripeService;
+
+
+    /**
+     * @param ProduitsRepository $repository
+     * @param EntityManagerInterface $em
+     * @param StripeService $stripeService
+     */
     public function __construct(ProduitsRepository $repository, EntityManagerInterface $em)
     {
         $this->repository = $repository;
@@ -53,9 +65,6 @@ Class ProduitController extends AbstractController{
      */
     public function show(Produits $produit, string $slug, Request $request):
 Response {
-
-
-
 
         if ($produit->getSlug() !== $slug){
             return $this->redirectToRoute('property_show', [

@@ -15,6 +15,15 @@ class EditUserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $tab = [
+            'Utilisateur' => 'ROLE_USER',
+            'Abonné' => 'ROLE_ABONNE',
+            'Modérateur' => 'ROLE_MODO',
+            'Administrateur' => 'ROLE_ADMIN'
+        ];
+
+        $admin = $builder->getData()->getRoles();
+
         $builder
             ->add('email', EmailType::class, [
                 'constraints' => [
@@ -29,15 +38,10 @@ class EditUserType extends AbstractType
                 'label'=> 'Email: '
             ])
             ->add('roles', ChoiceType::class, [
-                'choices' => [
-                    'Utilisateur' => 'ROLE_USER',
-                    'Abonné' => 'ROLE_ABONNE',
-                    'Modérateur' => 'ROLE_MODO',
-                    'Administrateur' => 'ROLE_ADMIN'
-                ],
+                'choices' => $tab,
                 'expanded' => true,
                 'multiple' => true,
-                'label' => 'Rôles: '
+                'label' => 'Rôles: ',
             ])
             ->add('Valider', SubmitType::class)
             ->add('Supprimer', SubmitType::class)
