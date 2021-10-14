@@ -85,7 +85,6 @@ export default function Basket(props) {
                     <button className="btn">Commander</button>
                 </StripeCheckout>
                 </div>
-                <div>{panier + totalPrice}</div>
             </>
             
         )}
