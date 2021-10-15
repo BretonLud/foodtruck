@@ -30,7 +30,6 @@
             <a href="{{ path('indexpage') }}" class="navbar-brand">Accueil</a>
             <div class="navbar-menu ml-auto mr-5">
                 <a href="{{ path('produit')}}" id="1" class="mr-5">Notre carte</a>
-                <a href="{{ path('cart_index') }}" class="mr-5">Panier</a>
                 <a href="#contact" id="4" class="mr-5">Contact</a>
                 {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('admin_index') }}" class="mr-5">Administration</a>
