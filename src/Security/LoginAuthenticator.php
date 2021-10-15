@@ -53,7 +53,7 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
         $tok = $token->getUser();
         ;
         if (in_array('ROLE_ADMIN', $tok->getRoles())){
-            return new RedirectResponse($this->urlGenerator->generate('admin_utilisateurs'));
+            return new RedirectResponse($this->urlGenerator->generate('admin_index'));
         }
         elseif (in_array('ROLE_ABONNE', $tok->getRoles()) || in_array('ROLE_USER', $tok->getRoles() )){
             return new RedirectResponse($this->urlGenerator->generate('indexpage'));

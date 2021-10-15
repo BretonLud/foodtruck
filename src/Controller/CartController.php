@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/cart", name="cart_")
+ * @Route("/order", name="cart_")
  * @IsGranted("ROLE_USER")
  */
 class CartController extends AbstractController{
@@ -35,7 +35,7 @@ class CartController extends AbstractController{
             $total += $produits->getPrix() * $quantite;
         }
 
-        return $this->render('cart/index.html.twig', compact("dataPanier", "total"));
+        return $this->render('order/index.html.twig', compact("dataPanier", "total"));
     }
 
     /**
