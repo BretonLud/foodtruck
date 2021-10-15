@@ -20,7 +20,7 @@
         </div>
         {{ form_start(form)}}
         <div class="form-field">
-         {{ form_label(form.email, 'Email :') }}
+         {{ form_label(form.email, 'Modifier email :') }}
          {{ form_widget(form.email, {'attr': {'class': 'form-control rounded-2'}}) }}
         </div>
         <div class="form-field">
@@ -28,7 +28,7 @@
          {{ form_widget(form.name, {'attr': {'class': 'form-control rounded-2'}}) }}
         </div>
         <div class="form-field">
-         {{ form_label(form.firstname) 'Prénom :'}}
+         {{ form_label(form.firstname, 'Prénom :')}}
          {{ form_widget(form.firstname, {'attr': {'class': 'form-control rounded-2'}}) }}
         </div>
          {{ form_row(form.Valider, {'attr': {'class': 'btn blue rounded-2'}}) }}
