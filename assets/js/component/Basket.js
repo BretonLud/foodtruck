@@ -41,7 +41,8 @@ export default function Basket(props) {
           },
           data: {
               Produits: JSON.stringify(cartItems, ["name", "qty", "price"]), 
-              PrixTotal: totalPrice
+              PrixTotal: totalPrice,
+              StripeToken: token
           }
         })
         .then((response) => {
@@ -54,7 +55,7 @@ export default function Basket(props) {
 
       const bouttonpaiement = <StripeCheckout 
               stripeKey="pk_test_51JjKjDCNkH9r21wgmurnRnbIkLFboSYR2wk4erBWcx6RX5TfxjnbjgJ76EdfD4U4MTHCYiX5MJTMwBtfoaq3q3p6001HiVFnNR"
-              token={handleToken}
+              token={submit,handleToken}
               label="Commander"
               currency="EUR"
               amount={totalPrice * 100}
