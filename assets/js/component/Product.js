@@ -10,7 +10,7 @@ export default function Product(props) {
     const {isShowing, toggle, isProduct} = useModal();
 
     return (
-            <div className="row space-between">
+            <div className="row">
                 <Modal onAdd={onAdd} product={isProduct} isShowing={isShowing} hide={toggle}/>
 
                     {

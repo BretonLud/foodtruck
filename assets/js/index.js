@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App itemOptions={window.REP_LOG_APP_PROPS.itemOptions}/>
+    <App itemOptions={window.REP_LOG_APP_PROPS.itemOptions} loggedIn={window.loggedIn}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

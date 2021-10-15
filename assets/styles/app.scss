@@ -1,0 +1,12 @@
+@import './variable.scss';
+@import './heritage.scss';
+@import './header.scss';
+@import './home.scss';
+
+body{
+    background: $mainColor;
+}
+
+a {
+    color: black;
+}

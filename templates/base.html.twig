@@ -35,17 +35,17 @@
                     <ul id="menu" class="nav__ul">
                         <li class="logo_img"> <a href="{{ path('indexpage') }}" class="lien">Accueil</a></li>
                         <li> <a href="{{ path('produit')}}" id="1" class="lien">Notre carte</a> </li>
-                        <li> <a href="{{ path('cart_index') }}">Panier</a>  </li>
+                        <li> <a href="{{ path('cart_index') }}" class="lien">Panier</a>  </li>
                         <li> <a href="#contact" id="4" class="lien">Contact</a> </li>
                         <li>
                             {% if is_granted('ROLE_ADMIN') %}
-                                <a href="{{ path('admin_index') }}">Administration</a>
+                                <a href="{{ path('admin_index') }}" class="lien">Administration</a>
                             {% endif %}
                             {% if is_granted('ROLE_MODO') %}
-                                <a href="{{ path('admin_produits_index') }}">Modération</a>
+                                <a href="{{ path('admin_produits_index') }}" class="lien">Modération</a>
                             {% endif %}
                             {% if is_granted('ROLE_USER') %}
-                                <a href="{{ path('profil_index') }}">Mon compte</a>
+                                <a href="{{ path('profil_index') }}" class="lien">Mon compte</a>
                             {% endif %}
                         </li>
                     </ul>

@@ -8,8 +8,8 @@ import Basket from './component/Basket';
 import Button from './component/Button';
 
 function App(props) {
-  const itemOptions = props
-  const products = itemOptions.itemOptions
+  const {itemOptions, loggedIn} = props
+  const products = itemOptions
   const [cartItems, setCartItems] = useState([])
   const onAdd = (product) => {
     const exist = cartItems.find(x => x.id === product.id)
@@ -71,12 +71,17 @@ const [buttons] = useState(allCategories);
 
   return (
     <div className="App">
-      <Header countCartItems={cartItems.length}></Header>
-      <Button button={buttons} filter={filter}/>
-
+      <div>
+        <Header countCartItems={cartItems.length}></Header>
+      </div>
       <div className="row">
-        <Main menuItem={menuItem}onAdd={onAdd} products={products}></Main>
-        <Basket onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}></Basket>
+        <div className="col-2">
+          <Button button={buttons} filter={filter}/>
+          <Main menuItem={menuItem}onAdd={onAdd} products={products}></Main>
+        </div>
+        <div className="col-1">
+          <Basket onAdd={onAdd} onRemove={onRemove} cartItems={cartItems} loggedIn={loggedIn}></Basket>
+        </div>
       </div>
     </div>
   );

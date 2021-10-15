@@ -1,0 +1,43 @@
+.login{
+    display: flex;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.col {
+    flex : 1;
+}
+.col-2 {
+    flex: 2
+}
+.col-3 {
+    flex: 3;
+}
+
+.card img {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 10%;
+
+}
+.card {
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+  }
+
+  .card-body {
+    text-align: center;
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+  }
+  
+  .card-title {
+    margin-bottom: 0.5rem;
+  }
+  
+

@@ -9,44 +9,8 @@
 
 
     <div id="root"></div>
-            {#
-            <div class="jumbotron">
-                <div class="container">
-                    {{ form_start(form) }}
-                        <div class="form-row align-items-end">
-                            <div class="col">
-                                {{ form_row(form.) }}
-                            </div>
-                            <div class="col">
-                                {{ form_row(form.maxPrice) }}
-                            </div>
-                            <div class="col">
-                                {{ form_row(form.options) }}
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Rechercher</button>
-                                </div>
-                            </div>
-                        </div>
-                    {{ form_end(form) }}
-                   </div>
-            </div>
-            #}
-        {#<div class="container mt-4">
-            <h1 class="mb-4">Voir notre carte</h1>
 
-            <div class="row" >
-                {% for produit in produits %}
-                    <div class="col-md-4">
-                        {% include 'produit/_produit.html.twig'%}
-                    </div>
-                {% endfor %}
-            </div>
-            {# <div class="navigation">
-                {{ knp_pagination_render(properties,'property/pagination.html.twig') }}
-            </div>
-        </div> #}
+   
 {% endblock %}
 
 {% block javascripts %}
@@ -69,6 +33,14 @@
                     {% endfor %}
             ],
         }
+    </script>
+
+    <script>
+                    {% if is_granted('ROLE_USER') %}
+                    window.loggedIn = true
+                    {% else %}
+                    window.loggedIn = false
+                    {% endif %}
     </script>
 
 

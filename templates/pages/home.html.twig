@@ -7,12 +7,14 @@
         You are logged in as {{ app.user.email }}
         <a href="{{ path('app_logout') }}" >Se déconnecter</a>
     {% else %}
-        <form action="/login">
-            <button type="submit">Se connecter</button>
-        </form>
-        <form action="/inscription">
-            <button type="submit">S'inscrire</button>
-        </form>
+        <div class="login">
+            <form action="/login">
+                <button type="submit">Se connecter</button>
+            </form>
+            <form action="/inscription">
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
     {% endif %}
 
     <div class="container">
@@ -29,10 +31,7 @@
                             </h5>
                             <div class="col">
                                 {% if produit.base64 %}
-                                    <img src="{{ produit.base64 }}" alt="img"
-                                         style="width: 100%;
-                                    height:
-                                    auto">
+                                    <img src="{{ produit.base64 }}" alt="img">
                                 {% endif %}
                             </div>
                             <p class="card-text">{{ produit.description }}</p>
