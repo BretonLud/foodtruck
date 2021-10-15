@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title 'Panier' %}
+{% block title 'Votre commande' %}
 
 {% block body %}
     <h1>Votre panier</h1>
@@ -21,11 +21,6 @@
                     <td>{{ element.produit.prix}}</td>
                     <td>{{ element.quantite }}</td>
                     <td>{{ element.quantite * element.produit.prix }}</td>
-                    <td>
-                        <a href="{{ path("cart_add", {id: element.produit.id}) }}">Ajouter</a>
-                        <a href="{{ path("cart_remove", {id: element.produit.id}) }}" >Enlever une unité</a>
-                        <a href="{{ path("cart_delete", {id: element.produit.id}) }}" >Supprimer l'article</a>
-                    </td>
                 </tr>
             {% else %}
                 <tr>
@@ -37,8 +32,6 @@
          <tr>
              <td colspan="3">Total</td>
              <td>{{ total }} €</td>
-             <td><a href="{{ path("cart_delete_all") }}" >Supprimer tous les articles</a></td>
-         </tr>
          <tr>
              <td colspan="5">
                  <div id="example-4" class="cell example example4"></div>

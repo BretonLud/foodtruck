@@ -2,9 +2,7 @@ import React, {useEffect, useState} from "react";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 
-function handleToken(token, addresses) {
-    console.log(token, addresses)
-  }
+
 
 
     
@@ -19,6 +17,7 @@ export default function Basket(props) {
     const panier = JSON.stringify(cartItems, ["name", "qty", "price"])
 
     const checkSession = () => {
+        
         axios.get("http://127.0.0.1:34979/login?", {withCredentials: true}).then(response => {
             if (X = true) {
                 alert("Vous êtes bien connecté")
@@ -32,10 +31,16 @@ export default function Basket(props) {
         })
     }
 
-    const submit = () => {
+    
+    function handleToken(token, addresses) {
+        console.log(token, addresses)
+      }
+
+
+    const submit = (token) => {
         axios({
           method: 'POST',
-          url: '#',
+          url: '/order/',
           headers: {
             'Content-Type': 'application/json',
           },
@@ -47,6 +52,7 @@ export default function Basket(props) {
         })
         .then((response) => {
             alert("Commande effectuée")
+            document.location.href="/order/"
         })
         .catch((error) => {
             alert("La commande n'a pu être effectué")
@@ -55,7 +61,7 @@ export default function Basket(props) {
 
       const bouttonpaiement = <StripeCheckout 
               stripeKey="pk_test_51JjKjDCNkH9r21wgmurnRnbIkLFboSYR2wk4erBWcx6RX5TfxjnbjgJ76EdfD4U4MTHCYiX5MJTMwBtfoaq3q3p6001HiVFnNR"
-              token={submit,handleToken}
+              token={handleToken,submit}
               label="Commander"
               currency="EUR"
               amount={totalPrice * 100}
@@ -119,7 +125,6 @@ export default function Basket(props) {
                 <hr />
                 {loggedIn ? bouttonpaiement : bouttonconnecter}
             </>
-            
         )}
     </aside>
 }
