@@ -72,6 +72,16 @@ class Produits
      */
     private $orders;
 
+    /**
+     * @ORM\Column(type="boolean", options={"default": true})
+     */
+    private $stock = true;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=OrderProduits::class, inversedBy="produits_id")
+     */
+    private $orderProduits;
+
     public function __construct()
     {
         $this->created_at = new \DateTime();
@@ -246,6 +256,30 @@ class Produits
                 $order->setProduits(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStock(): ?bool
+    {
+        return $this->stock;
+    }
+
+    public function setStock(bool $stock): self
+    {
+        $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getOrderProduits(): ?OrderProduits
+    {
+        return $this->orderProduits;
+    }
+
+    public function setOrderProduits(?OrderProduits $orderProduits): self
+    {
+        $this->orderProduits = $orderProduits;
 
         return $this;
     }

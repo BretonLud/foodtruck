@@ -64,7 +64,8 @@ class ProduitsRepository extends ServiceEntityRepository
     private function findVisibleQuery() : QueryBuilder
     {
 
-        return $this->createQueryBuilder('p');
+        return $this->createQueryBuilder('p')
+            ->where('p.stock = true');
 
     }
 }

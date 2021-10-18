@@ -30,6 +30,7 @@ class ProduitsType extends AbstractType
                 'multiple' => true,
                 'required' => false
             ])
+            ->add('stock')
         ;
     }
 

@@ -53,7 +53,6 @@ Class ProduitController extends AbstractController{
             $this->repository->findAll();
 
 
-
         return $this->render('produit/index.html.twig', [
             'current_menu' => 'produits',
             'produits' => $produits

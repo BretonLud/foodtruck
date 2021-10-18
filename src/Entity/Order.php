@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OrderRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,11 +27,6 @@ class Order
      * @ORM\Column(type="integer", nullable=true)
      */
     private $user_id;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $product_id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -82,9 +79,15 @@ class Order
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Produits::class, inversedBy="orders")
+     * @ORM\OneToMany(targetEntity=OrderProduits::class, mappedBy="order_id")
      */
-    private $produits;
+    private $orderProduits;
+
+    public function __construct()
+    {
+        $this->orderProduits = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -99,18 +102,6 @@ class Order
     public function setUserId(?int $user_id): self
     {
         $this->user_id = $user_id;
-
-        return $this;
-    }
-
-    public function getProductId(): ?int
-    {
-        return $this->product_id;
-    }
-
-    public function setProductId(?int $product_id): self
-    {
-        $this->product_id = $product_id;
 
         return $this;
     }
@@ -235,15 +226,34 @@ class Order
         return $this;
     }
 
-    public function getProduits(): ?Produits
+    /**
+     * @return Collection|OrderProduits[]
+     */
+    public function getOrderProduits(): Collection
     {
-        return $this->produits;
+        return $this->orderProduits;
     }
 
-    public function setProduits(?Produits $produits): self
+    public function addOrderProduit(OrderProduits $orderProduit): self
     {
-        $this->produits = $produits;
+        if (!$this->orderProduits->contains($orderProduit)) {
+            $this->orderProduits[] = $orderProduit;
+            $orderProduit->setOrderId($this);
+        }
 
         return $this;
     }
+
+    public function removeOrderProduit(OrderProduits $orderProduit): self
+    {
+        if ($this->orderProduits->removeElement($orderProduit)) {
+            // set the owning side to null (unless already changed)
+            if ($orderProduit->getOrderId() === $this) {
+                $orderProduit->setOrderId(null);
+            }
+        }
+
+        return $this;
+    }
+
 }
