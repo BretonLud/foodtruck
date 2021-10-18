@@ -38,7 +38,7 @@ class HoneyPotSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function checkHoneyJar(FormEvent $event, Produits $produits): void
+    public function checkHoneyJar(FormEvent $event): void
     {
         $request = $this->requestStack->getCurrentRequest();
 

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import StripeCheckout from "react-stripe-checkout";
+import Header from "./Header";
 import axios from "axios";
 
 
@@ -16,43 +17,22 @@ export default function Basket(props) {
 
     const panier = JSON.stringify(cartItems, ["name", "qty", "price"])
 
-    const checkSession = () => {
-        
-        axios.get("http://127.0.0.1:34979/login?", {withCredentials: true}).then(response => {
-            if (X = true) {
-                alert("Vous êtes bien connecté")
-            }
-            else {
-                alert("Veuillez vous connecter")
-            }
-        })
-        .catch(error => {
-            console.log("check login error")
-        })
-    }
-
-    
-    function handleToken(token, addresses) {
-        console.log(token, addresses)
-      }
-
-
     const submit = (token) => {
         axios({
           method: 'POST',
           url: '/order/',
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded',
           },
           data: {
               Produits: JSON.stringify(cartItems, ["name", "qty", "price"]), 
-              PrixTotal: totalPrice,
-              StripeToken: token
+              PrixTotal: JSON.stringify(totalPrice),
+              StripeToken: JSON.stringify(token)
           }
         })
         .then((response) => {
             alert("Commande effectuée")
-            document.location.href="/order/"
+            //document.location.href="/order/"
         })
         .catch((error) => {
             alert("La commande n'a pu être effectué")
@@ -61,7 +41,7 @@ export default function Basket(props) {
 
       const bouttonpaiement = <StripeCheckout 
               stripeKey="pk_test_51JjKjDCNkH9r21wgmurnRnbIkLFboSYR2wk4erBWcx6RX5TfxjnbjgJ76EdfD4U4MTHCYiX5MJTMwBtfoaq3q3p6001HiVFnNR"
-              token={handleToken,submit}
+              token={submit}
               label="Commander"
               currency="EUR"
               amount={totalPrice * 100}
@@ -77,7 +57,8 @@ export default function Basket(props) {
       
 
     return <aside className="block col-1">
-        <h2>Cart Items</h2>
+        <h2>Cart Items</h2> 
+        <Header countCartItems={cartItems.length}/>
         <div>{cartItems.length === 0 && <div>Cart is Empty</div>}</div>
         {cartItems.map((item) => (
             <form key={item.name} className="row" action="" method="post">
