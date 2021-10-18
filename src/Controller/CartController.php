@@ -2,11 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\OrderProduits;
 use App\Entity\Produits;
 use App\Repository\ProduitsRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -15,26 +16,19 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CartController extends AbstractController{
 
-    /**
-     * @Route("/", name="index")
-     */
-    public function index(SessionInterface $session, ProduitsRepository $produitsRepository)
+
+    public function ajaxAction(Request $request)
     {
-        $panier = $session->get("panier", []);
+        $test = $request->request->get("request");
+        var_dump($test);
+    }
 
-        //On "fabrique" les données
-        $dataPanier = [];
-        $total = 0;
+    /**
+     * @Route("/", name="index", methods="POST")
+     */
+    public function index(Request $request)
+    {
 
-        foreach ($panier as $id => $quantite){
-            $produits = $produitsRepository->find($id);
-            $dataPanier[] = [
-                'produit' => $produits,
-                'quantite' => $quantite,
-            ];
-            $total += $produits->getPrix() * $quantite;
-        }
-
-        return $this->render('order/index.html.twig', compact("dataPanier", "total"));
+        return $this->render('order/index.html.twig');
     }
 }

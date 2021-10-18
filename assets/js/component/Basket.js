@@ -18,7 +18,7 @@ export default function Basket(props) {
 
     const checkSession = () => {
         
-        axios.get("http://127.0.0.1:34979/login?", {withCredentials: true}).then(response => {
+        axios.get("/login?", {withCredentials: true}).then(response => {
             if (X = true) {
                 alert("Vous êtes bien connecté")
             }
@@ -45,14 +45,17 @@ export default function Basket(props) {
             'Content-Type': 'application/json',
           },
           data: {
-              Produits: JSON.stringify(cartItems, ["name", "qty", "price"]), 
+              Produits: JSON.stringify(cartItems, ["name", "qty", "price"]),
               PrixTotal: totalPrice,
               StripeToken: token
           }
         })
         .then((response) => {
             alert("Commande effectuée")
-            document.location.href="/order/"
+            let test = document.querySelector('header');
+
+            test.innerHTML =response.request.response;
+           // document.location.href="/order/"
         })
         .catch((error) => {
             alert("La commande n'a pu être effectué")
@@ -61,7 +64,7 @@ export default function Basket(props) {
 
       const bouttonpaiement = <StripeCheckout 
               stripeKey="pk_test_51JjKjDCNkH9r21wgmurnRnbIkLFboSYR2wk4erBWcx6RX5TfxjnbjgJ76EdfD4U4MTHCYiX5MJTMwBtfoaq3q3p6001HiVFnNR"
-              token={handleToken,submit}
+              token={submit}
               label="Commander"
               currency="EUR"
               amount={totalPrice * 100}

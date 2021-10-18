@@ -68,11 +68,6 @@ class Produits
     private $prix;
 
     /**
-     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="produits")
-     */
-    private $orders;
-
-    /**
      * @ORM\Column(type="boolean", options={"default": true})
      */
     private $stock = true;
@@ -225,35 +220,9 @@ class Produits
 
     }
 
-    /**
-     * @return Collection|Order[]
-     */
-    public function getOrders(): Collection
-    {
-        return $this->orders;
-    }
 
-    public function addOrder(Order $order): self
-    {
-        if (!$this->orders->contains($order)) {
-            $this->orders[] = $order;
-            $order->setProduits($this);
-        }
 
-        return $this;
-    }
 
-    public function removeOrder(Order $order): self
-    {
-        if ($this->orders->removeElement($order)) {
-            // set the owning side to null (unless already changed)
-            if ($order->getProduits() === $this) {
-                $order->setProduits(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getStock(): ?bool
     {
@@ -263,18 +232,6 @@ class Produits
     public function setStock(bool $stock): self
     {
         $this->stock = $stock;
-
-        return $this;
-    }
-
-    public function getOrderProduits(): ?OrderProduits
-    {
-        return $this->orderProduits;
-    }
-
-    public function setOrderProduits(?OrderProduits $orderProduits): self
-    {
-        $this->orderProduits = $orderProduits;
 
         return $this;
     }

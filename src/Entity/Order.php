@@ -24,11 +24,6 @@ class Order
     private $id;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $user_id;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $reference;
@@ -78,6 +73,11 @@ class Order
      */
     private $user;
 
+    /**
+     * @ORM\OneToMany(targetEntity=OrderProduits::class, mappedBy="command", orphanRemoval=true)
+     */
+    private $orderProduits;
+
 
 
     public function __construct()
@@ -89,18 +89,6 @@ class Order
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getUserId(): ?int
-    {
-        return $this->user_id;
-    }
-
-    public function setUserId(?int $user_id): self
-    {
-        $this->user_id = $user_id;
-
-        return $this;
     }
 
     public function getReference(): ?string

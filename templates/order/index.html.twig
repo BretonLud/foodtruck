@@ -15,23 +15,11 @@
             </tr>
         </thead>
         <tbody>
-            {% for element in dataPanier %}
-                <tr>
-                    <td>{{ element.produit.name }}</td>
-                    <td>{{ element.produit.prix}}</td>
-                    <td>{{ element.quantite }}</td>
-                    <td>{{ element.quantite * element.produit.prix }}</td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="5">Votre panier est vide</td>
-                </tr>
-            {% endfor %}
         </tbody>
          <tfoot>
          <tr>
              <td colspan="3">Total</td>
-             <td>{{ total }} €</td>
+
          <tr>
              <td colspan="5">
                  <div id="example-4" class="cell example example4"></div>
