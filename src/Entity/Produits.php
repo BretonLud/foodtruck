@@ -77,11 +77,6 @@ class Produits
      */
     private $stock = true;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=OrderProduits::class, inversedBy="produits_id")
-     */
-    private $orderProduits;
-
     public function __construct()
     {
         $this->created_at = new \DateTime();

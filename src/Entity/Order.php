@@ -78,10 +78,7 @@ class Order
      */
     private $user;
 
-    /**
-     * @ORM\OneToMany(targetEntity=OrderProduits::class, mappedBy="order_id")
-     */
-    private $orderProduits;
+
 
     public function __construct()
     {
