@@ -38,7 +38,11 @@ class HoneyPotSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function checkHoneyJar(FormEvent $event, Produits $produits): void
+    /**
+     * @param FormEvent $event
+     * @param Produits $produits
+     */
+    public function checkHoneyJar(FormEvent $event): void
     {
         $request = $this->requestStack->getCurrentRequest();
 
@@ -54,13 +58,13 @@ class HoneyPotSubscriber implements EventSubscriberInterface
 
         [
             'Postal_code' => $birthday,
-            'Address' => $adress
+            'Address' => $address
         ] = $data;
 
-        if ($birthday !== "" || $adress !== ""){
+        if ($birthday !== "" || $address !== ""){
             $this->honeyPotLogger->info("Une potentielle tentative de robot spammeur ayant l'adresse ip 
             '{$request->getClientIp()}' a eu lieu.
-            Le champ Birthday contenait '{$birthday}' et le champ Adresse contenait '{$adress}'.");
+            Le champ Birthday contenait '{$birthday}' et le champ Adresse contenait '{$address}'.");
             throw new HttpException(403, "On t'a vu Mr le bot");
         }
     }
