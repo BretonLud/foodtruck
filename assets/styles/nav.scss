@@ -5,9 +5,24 @@ nav {
     color: $secondarycolor;
     height: 3.5em;
     line-height: 3.5rem;
+    width: 100%;
 }
 
 nav a {
     color: $secondarycolor;
 }
 
+li {
+    list-style-type: none;
+}
+
+@media screen and (max-width: 960px) {
+    nav {
+        text-align: center;
+        height: 4.5rem;
+        line-height: 2rem;
+    }
+    li {
+        width: 40%;
+    }
+}

@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App itemOptions={window.REP_LOG_APP_PROPS.itemOptions} loggedIn={window.loggedIn}/>
+    <App itemOptions={window.REP_LOG_APP_PROPS.itemOptions} loggedIn={window.loggedIn} sessionMail={window.sessionMail}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

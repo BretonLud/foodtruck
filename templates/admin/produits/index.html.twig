@@ -28,7 +28,7 @@
                               style="display: inline-block" onsubmit="return confirm('Êtes vous vraiment sûr ?')">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ produit.id) }}">
-                            <button class="btn btn-danger">Supprimer</button>
+                            <button class="myButton3">Supprimer</button>
                         </form>
                     </td>
                 </tr>
@@ -36,7 +36,7 @@
             </tbody>
         </table>
         <div class="text-right">
-            <a href="{{ path('admin_produits_new') }}" class="btn btn-primary">Créer un nouveau bien</a>
+            <a href="{{ path('admin_produits_new') }}" class="btn btn-primary"><button class="myButton">Créer un nouveau bien</button></a>
         </div>
     </div>
 {% endblock %}

@@ -27,7 +27,7 @@
                               style="display: inline-block" onsubmit="return confirm('Êtes vous vraiment sûr ?')">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token('admin.option.delete' ~ option.id) }}">
-                            <button class="btn btn-danger">Supprimer</button>
+                            <button class="myButton3">Supprimer</button>
                         </form>
                     </td>
                 </tr>
@@ -35,7 +35,7 @@
             </tbody>
         </table>
         <div class="text-right">
-            <a href="{{ path('admin_option_new') }}" class="btn btn-primary">Créer une nouvelle option</a>
+            <a href="{{ path('admin_option_new') }}" class="btn btn-primary"><button class="myButton2">Créer une nouvelle option</button></a>
         </div>
     </div>
 {% endblock %}

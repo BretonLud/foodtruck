@@ -29,19 +29,19 @@ class RegistrationFormType extends HoneyPotType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'type' => PasswordType::class,
-                'invalid_message' => 'The password fields must match.',
+                'invalid_message' => 'Les mots de passes doivent être identiques.',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
-                'first_options'  => ['label' => 'Mots de passe: '],
-                'second_options' => ['label' => 'Confirmer le mots de passe: '],
+                'first_options'  => ['label' => 'Mot de passe: '],
+                'second_options' => ['label' => 'Confirmer le mot de passe: '],
                 'mapped' => false,
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Mot de passe requis',
                     ]),
                     new Length([
                         'min' => 8,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'Votre mot de passe doit contenir au moins{{ limit }} caractères',
                         // max length allowed by Symfony for security reasons
                         'max' => 50,
                     ]),

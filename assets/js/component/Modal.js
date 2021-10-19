@@ -11,11 +11,11 @@ const Modal = ({ isShowing, hide, product, onAdd }) => isShowing ? ReactDOM.crea
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-          <img className="small" src={product.image} alt={product.name}></img>
+          <img className="modalimg" src={product.image} alt={product.name}></img>
           <p>
           {product.description}
           </p>
-          <button className="btn btn-product-modal" onClick={() => onAdd(product)}>Add To Cart</button>
+          <button className="btn btn-product-modal" onClick={() => onAdd(product)}>Ajouter au panier</button>
       </div>
     </div>
   </>, document.body
