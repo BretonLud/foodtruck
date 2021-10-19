@@ -1,0 +1,13 @@
+@import './variable.scss';
+
+nav {
+    background-color: $mainColor;
+    color: $secondarycolor;
+    height: 3.5em;
+    line-height: 3.5rem;
+}
+
+nav a {
+    color: $secondarycolor;
+}
+

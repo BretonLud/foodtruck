@@ -6,17 +6,12 @@ export default function Header(props) {
     return (
         <header className="row space-between block center">
             <div>
- 
-            </div>
-            <div>
                 <a href="/cart">
-                    
                     <img src={panier} alt="panier" /> { ' '}
                     {countCartItems ? (
                         <button className="btn badge">{countCartItems}</button>
                     ) : ('')}
-                    
-                    </a> <a href="#/signin">SignIn</a>
+                    </a>
             </div>
         </header>
     )

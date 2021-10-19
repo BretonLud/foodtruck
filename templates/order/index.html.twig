@@ -3,30 +3,37 @@
 {% block title 'Votre commande' %}
 
 {% block body %}
-    <h1>Votre panier</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Produit</th>
-                <th>Prix</th>
-                <th>Quantité</th>
-                <th>Total</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-         <tfoot>
-         <tr>
-             <td colspan="3">Total</td>
+    {% if order is defined and order is not null  %}
+        <h1>Votre commande {{ order.reference }}</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produit in produits %}
+                <tr>
+                    <th>{{ produit.produit.name }}</th>
+                    <th>{{ produit.quantite }}</th>
+                    <th>{{ produit.produit.prix }}</th>
+                </tr>
+                {% endfor %}
+            </tbody>
+             <tfoot>
+             <tr>
+                 <td colspan="2">Total</td>
+                 <td>{{ order.price }}</td>
+             <tr>
 
-         <tr>
-             <td colspan="5">
-                 <div id="example-4" class="cell example example4"></div>
-             </td>
-         </tr>
-         </tfoot>
-    </table>
+             </tr>
+             </tfoot>
+        </table>
+    {% else %}
+        PAS DE PANIER
+    {% endif %}
 {% endblock %}
 
 {% block javascripts %}

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import StripeCheckout from "react-stripe-checkout";
+import Header from "./Header";
 import axios from "axios";
 
 
@@ -15,6 +16,7 @@ export default function Basket(props) {
 
 
     const panier = JSON.stringify(cartItems, ["name", "qty", "price"])
+
 
     const checkSession = () => {
         
@@ -37,25 +39,28 @@ export default function Basket(props) {
       }
 
 
+
     const submit = (token) => {
         axios({
           method: 'POST',
-          url: '/order/',
+          url: '/order/paiement',
           headers: {
             'Content-Type': 'application/json',
           },
           data: {
-              Produits: JSON.stringify(cartItems, ["name", "qty", "price"]),
+
+
+
+              Produits: JSON.stringify(cartItems, ['id', 'qty']),
               PrixTotal: totalPrice,
               StripeToken: token
+
           }
         })
         .then((response) => {
             alert("Commande effectuée")
-            let test = document.querySelector('header');
 
-            test.innerHTML =response.request.response;
-           // document.location.href="/order/"
+          document.location.href="/order/"
         })
         .catch((error) => {
             alert("La commande n'a pu être effectué")
@@ -80,7 +85,8 @@ export default function Basket(props) {
       
 
     return <aside className="block col-1">
-        <h2>Cart Items</h2>
+        <h2>Cart Items</h2> 
+        <Header countCartItems={cartItems.length}/>
         <div>{cartItems.length === 0 && <div>Cart is Empty</div>}</div>
         {cartItems.map((item) => (
             <form key={item.name} className="row" action="" method="post">

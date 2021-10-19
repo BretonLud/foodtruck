@@ -8,6 +8,7 @@ use App\Entity\Order;
 use App\Entity\Produits;
 use App\Entity\User;
 use App\Repository\ProduitsRepository;
+use App\Service\Stripe;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,26 +21,26 @@ Class ProduitController extends AbstractController{
      * @var ProduitsRepository
      */
     private ProduitsRepository $repository;
+
     /**
      * @var EntityManagerInterface
      */
     private $em;
 
     /**
-     * @var StripeService
+     * @var Stripe
      */
     protected $stripeService;
-
 
     /**
      * @param ProduitsRepository $repository
      * @param EntityManagerInterface $em
-     * @param StripeService $stripeService
      */
-    public function __construct(ProduitsRepository $repository, EntityManagerInterface $em)
+    public function __construct(ProduitsRepository $repository, EntityManagerInterface $em, Stripe $stripeService)
     {
         $this->repository = $repository;
         $this->em = $em;
+        $this->stripeService = $stripeService;
     }
 
 
@@ -51,6 +52,7 @@ Class ProduitController extends AbstractController{
     {
         $produits =
             $this->repository->findAll();
+
 
 
         return $this->render('produit/index.html.twig', [
@@ -77,6 +79,13 @@ Response {
             'produit' => $produit,
             'current_menu' => 'properties',
         ]);
+    }
+
+    public function intentSecret(Produits $produits)
+    {
+        $intent = $this->stripeService->paymentIntent($produits);
+
+        return $intent['client_secret'] ?? null;
     }
 
 }
