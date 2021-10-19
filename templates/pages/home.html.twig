@@ -4,15 +4,15 @@
 
 {% block body %}
     {% if app.user%}
-        You are logged in as {{ app.user.email }}
-        <a href="{{ path('app_logout') }}" >Se déconnecter</a>
+        Vous êtes connecté en tant que {{ app.user.email }}
+        <a href="{{ path('app_logout') }}" ><button class="myButton">Se déconnecter</button> </a>
     {% else %}
         <div class="login">
             <form action="/login">
-                <button type="submit">Se connecter</button>
+                <button class="myButton"type="submit">Se connecter</button>
             </form>
             <form action="/inscription">
-                <button type="submit">S'inscrire</button>
+                <button class="myButton2" type="submit">S'inscrire</button>
             </form>
         </div>
     {% endif %}

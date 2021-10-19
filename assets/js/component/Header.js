@@ -5,8 +5,8 @@ export default function Header(props) {
     const {countCartItems} = props
     return (
         <header className="row space-between block center">
-            <div>
-                <a href="/cart">
+            <div className="bouton-panier">
+                <a href="#panier">
                     <img src={panier} alt="panier" /> { ' '}
                     {countCartItems ? (
                         <button className="btn badge">{countCartItems}</button>

@@ -1,0 +1,29 @@
+@import './variable.scss';
+
+
+
+ input[type=text], input[type=email], input[type=password] {
+    width: 100%;
+    padding: 12px; 
+    border: 2px solid $thirdcolor;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+  }
+
+  .form-login-register {
+    background-color: $mainColor;
+    color: $secondarycolor;
+    margin: 5% auto;
+    overflow: hidden;
+    padding: 40px 30px 30px 30px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 5px 10px 10px rgba($thirdcolor, 0.2);
+  }
+
+  .form-login-register h1 {
+      margin-top: -5%;
+      margin-bottom: 10%;
+  }

@@ -20,16 +20,20 @@
         window.REP_LOG_APP_PROPS = {
             itemOptions: [
                     {% for produit in produits %}
-                    {
-                        id: {{ produit.id }},
-                        name: "{{produit.name}}",
-                        description: "{{produit.description}}", 
-                        price: {{produit.prix}},
-                        image: "{{produit.base64}}",
-                        category: [ {% for option in produit.options %}
-                         "{{option.name}}",
-                    {% endfor %} ]
-                    },
+                        {
+                            id: {{ produit.id }},
+                            name: "{{produit.name}}",
+                            description: "{{produit.description}}", 
+                            price: {{produit.prix}},
+                            image: "{{produit.base64}}",
+                            category: [ 
+                                {% for option in produit.options %}
+                                    "{{option.name}}",
+                                {% endfor %} 
+                            ],
+                            stock: "{{produit.stock}}"
+
+                        },
                     {% endfor %}
             ],
         }
@@ -41,6 +45,8 @@
                     {% else %}
                     window.loggedIn = false
                     {% endif %}
+                    window.sessionMail = "{{app.user.email}}"
+
     </script>
 
 

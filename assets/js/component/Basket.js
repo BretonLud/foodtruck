@@ -8,7 +8,9 @@ import axios from "axios";
 
     
 export default function Basket(props) {
-    const {cartItems, onAdd, onRemove, loggedIn} = props
+    const {cartItems, onAdd, onRemove, loggedIn, sessionMail} = props
+    {console.log(sessionMail)}
+    const rememberme = true
     const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0)
     //const taxPrice = itemsPrice * 0.10
     //const shippingPrice = itemsPrice > 20 ? 0 : 3
@@ -22,12 +24,12 @@ export default function Basket(props) {
           method: 'POST',
           url: '/order/',
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
           },
           data: {
-              Produits: JSON.stringify(cartItems, ["name", "qty", "price"]), 
-              PrixTotal: JSON.stringify(totalPrice),
-              StripeToken: JSON.stringify(token)
+              Produits: JSON.stringify(cartItems, ["id", "qty", "price"]), 
+              PrixTotal: totalPrice,
+              StripeToken: token
           }
         })
         .then((response) => {
@@ -42,6 +44,8 @@ export default function Basket(props) {
       const bouttonpaiement = <StripeCheckout 
               stripeKey="pk_test_51JjKjDCNkH9r21wgmurnRnbIkLFboSYR2wk4erBWcx6RX5TfxjnbjgJ76EdfD4U4MTHCYiX5MJTMwBtfoaq3q3p6001HiVFnNR"
               token={submit}
+              locale="fr"
+              email={sessionMail}
               label="Commander"
               currency="EUR"
               amount={totalPrice * 100}
@@ -56,10 +60,9 @@ export default function Basket(props) {
 
       
 
-    return <aside className="block col-1">
-        <h2>Cart Items</h2> 
+    return <aside id="panier" className="block col-1">
         <Header countCartItems={cartItems.length}/>
-        <div>{cartItems.length === 0 && <div>Cart is Empty</div>}</div>
+        <div>{cartItems.length === 0 && <div>Le panier est vide</div>}</div>
         {cartItems.map((item) => (
             <form key={item.name} className="row" action="" method="post">
             <div key={item.id} className="width">
@@ -69,14 +72,14 @@ export default function Basket(props) {
                     <input type="hidden" name="ProductQuantity" id="ProductQuantity" value={item.qty} readOnly={true}/>
                     <input type="hidden" name="ProductPrice" id="ProductPrice" value={item.price.toFixed(2)} readOnly={true}/>
                     </div>
-                <div className="col-2">
+                <div className="col-4">
                     <div className="row space-between">
-                        <p>{item.name}</p>
+                        <p className="produitpanier">{item.name}</p>
                         <p>{item.qty} x {item.price.toFixed(2)} €</p>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-2">
+                    <div className="col-4">
                         <button type="button" onClick={() => onAdd(item)} className="btn add">+</button>
                         <button type="button" onClick={() => onRemove(item)} className="btn remove">-</button>
                     </div>
@@ -100,7 +103,7 @@ export default function Basket(props) {
                     <div className="col-1 text-right">€{shippingPrice.toFixed(2)}</div>
                 </div>*/}
                 <div className="row">
-                    <div className="col-2"><strong>Total Price</strong></div>
+                    <div className="col-4"><strong>Prix Total</strong></div>
                     <div className="col-1 text-right"><strong>€{totalPrice.toFixed(2)}</strong></div>
                 </div>
                 <hr />

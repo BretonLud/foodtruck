@@ -3,18 +3,20 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1>Inscription</h1>
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword.first) }}
-        {{ form_row(registrationForm.plainPassword.second) }}
-        <fieldset class="sweet-candy">
-                {{ form_row(registrationForm.Postal_code)}}
-        </fieldset>
-        <fieldset class="sweet-candy">
-                {{ form_row(registrationForm.Address)}}
-        </fieldset>
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+    <form class="form-login-register" method="post">
+        {{ form_start(registrationForm) }}
+                <h1>Inscription</h1>
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword.first) }}
+                {{ form_row(registrationForm.plainPassword.second) }}
+                <fieldset class="sweet-candy">
+                        {{ form_row(registrationForm.Postal_code)}}
+                </fieldset>
+                <fieldset class="sweet-candy">
+                        {{ form_row(registrationForm.Address)}}
+                </fieldset>
+                <button type="submit" class="myButton">Register</button>
+        
+        {{ form_end(registrationForm) }}
+    </form>
 {% endblock %}
