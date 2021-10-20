@@ -4,13 +4,11 @@
 
 {% block body %}
     
-    <div class="form">
+    <div class="form edit-form">
     <h1>Modifier l'utilisateur</h1>
     {{ form_start(userForm) }}
         {{ form_row(userForm.email) }}
-        <div class="check">
         {{ form_row(userForm.roles) }}
-        </div>
         {{ form_row(userForm.Valider) }}
         {{ form_row(userForm.Supprimer) }}
     {{ form_end(userForm) }}

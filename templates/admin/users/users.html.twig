@@ -23,6 +23,8 @@
                                 Administrateur
                             {% elseif role == "ROLE_ABONNE"%}
                                 Abonné
+                            {% elseif role == "ROLE_MODO"%}
+                                Modérateur
                             {% else %}
                                 Utilisateur
                             {% endif %}

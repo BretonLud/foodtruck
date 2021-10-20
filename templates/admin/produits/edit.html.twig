@@ -1,8 +1,8 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <div class="container mt-4">
+    <form class="form edit-form">
         <h1>Editer le produit</h1>
         {{ include("admin/produits/_form.html.twig", {button: 'Editer'}) }}
-    </div>
+    </form>
 {% endblock %}
