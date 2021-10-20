@@ -42,10 +42,10 @@
     <script>
                     {% if is_granted('ROLE_USER') %}
                     window.loggedIn = true
+                    window.sessionMail = "{{app.user.email}}"
                     {% else %}
                     window.loggedIn = false
                     {% endif %}
-                    window.sessionMail = "{{app.user.email}}"
 
     </script>
 
