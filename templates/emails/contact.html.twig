@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demande de contact</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tbody>
+            <tr>
+                <td align="center" style="font-size:0px;padding:0px;padding-bottom:20px;word-break:break-word;">
+                    <div style="font-family:Alice, Helvetica, Arial, sans-serif;font-size:26px;font-weight:400;line-height:30px;text-align:center;color:#000000;">Prise de contact</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>{{ contact.sujet }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="font-size:0px;padding:0 40px;word-break:break-word;">
+                    <div style="font-family:Roboto, Helvetica, Arial, sans-serif;
+                                                font-size:14px;font-weight:400;line-height:21px;text-align:center;
+                                                color:#000000;">Contact: {{ contact.firstname }} {{ contact.lastname
+                        }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="font-size:0px;padding:0 40px;word-break:break-word;">
+                    <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:14px;font-weight:400;line-height:21px;text-align:center;color:#000000;">Email: {{ contact.email }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="font-size:0px;padding:0 40px;word-break:break-word;">
+                    <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:14px;font-weight:400;line-height:21px;text-align:center;color:#000000;">Message:</div>
+                    <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:14px;font-weight:400;line-height:21px;text-align:center;color:#000000;"> {{ contact.message }}</div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
