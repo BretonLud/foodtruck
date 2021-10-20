@@ -2,13 +2,17 @@
 
 namespace App\Controller;
 
+use App\Entity\Order;
+use App\Entity\OrderProduits;
+use App\Entity\User;
 use App\Form\EditProfileType;
+use App\Repository\OrderProduitsRepository;
+use App\Repository\OrderRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 
 /**
@@ -16,6 +20,27 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
  */
 class ProfilController extends AbstractController
 {
+
+    /**
+     * @var OrderRepository
+     */
+    private  $orderRepository;
+
+    /**
+     * @var OrderProduitsRepository
+     */
+    private $orderProduitsRepository;
+
+    /**
+     * @param OrderRepository $orderRepository
+     * @param OrderProduitsRepository $orderProduitsRepository
+     */
+    public function __construct(OrderRepository $orderRepository, OrderProduitsRepository $orderProduitsRepository)
+    {
+        $this->orderRepository = $orderRepository;
+        $this->orderProduitsRepository = $orderProduitsRepository;
+    }
+
     /**
      * @return Response
      * @Route("/", name="index")
@@ -51,6 +76,8 @@ class ProfilController extends AbstractController
 
     /**
      * @param Request $request
+     * @param UserPasswordHasherInterface $passwordHasher
+     * @return Response
      * @Route("/pass/modifier", name="pass")
      */
     public function editPass(Request $request, UserPasswordHasherInterface $passwordHasher
@@ -93,10 +120,27 @@ class ProfilController extends AbstractController
         return $this->render('profil/editpass.html.twig');
     }
 
-    /*/**
-     * @Route("/password", name="password)
+    /**
+     * @return Response
+     * @Route("/history", name="history")
      */
-    /*public function changePassword() {
+    public function history(): Response
+    {
+        $user = $this->getUser();
 
-    }*/
+        $orders = $this->orderRepository->findBy(['user' => $user]);
+        $cmd = [];
+        foreach($orders as $key => $order) {
+            $cmd[$key]['order'] = $order;
+            $orderprod = $order->getOrderProduits();//$this->orderProduitsRepository->findBy(['command' => $order]);
+            foreach ($orderprod as $keyProd => $prod) {
+                $cmd[$key]['produits'][$keyProd]['produit'] = $prod->getProduits();
+                $cmd[$key]['produits'][$keyProd]['quantity'] = $prod->getQuantity();
+            }
+        }
+
+       return $this->render('profil/history.html.twig', [
+           'commands' => $cmd
+       ]);
+    }
 }
