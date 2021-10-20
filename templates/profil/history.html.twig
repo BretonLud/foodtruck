@@ -1,0 +1,21 @@
+{% extends 'users.html.twig' %}
+
+{% block title 'Historique de commande' %}
+
+{% block body %}
+    {% for command in commands %}
+        <div>
+            {{ command.order.reference }}
+            {% for produit in command.produits %}
+            <div style="display: flex">
+                {{ produit.produit.name }}
+                {{ produit.quantity }}
+                {{ produit.produit.prix }}
+
+            </div>
+            {% endfor %}
+            <p>Total : {{ command.order.price }}</p>
+        </div>
+
+    {% endfor%}
+{% endblock %}
