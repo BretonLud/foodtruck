@@ -28,19 +28,13 @@ Class ProduitController extends AbstractController{
     private $em;
 
     /**
-     * @var Stripe
-     */
-    protected $stripeService;
-
-    /**
      * @param ProduitsRepository $repository
      * @param EntityManagerInterface $em
      */
-    public function __construct(ProduitsRepository $repository, EntityManagerInterface $em, Stripe $stripeService)
+    public function __construct(ProduitsRepository $repository, EntityManagerInterface $em)
     {
         $this->repository = $repository;
         $this->em = $em;
-        $this->stripeService = $stripeService;
     }
 
 
