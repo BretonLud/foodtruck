@@ -96,10 +96,14 @@ class AdminProduitsController extends AbstractController
                 $this->addFlash('success', 'Bien modifié avec succès');
                 return $this->redirectToRoute('admin_produits_index');
             }
+            else {
+            
+                $this->addFlash('error', 'Impossible d\'éditer le bien');
+            }
+       
             return $this->redirectToRoute('admin_produits_index');
-        }
-
-
+        } 
+        
         return $this->render('admin/produits/edit.html.twig',[
             'produit' => $produit,
             'form' => $form->createView()
