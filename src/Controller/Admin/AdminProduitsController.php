@@ -80,14 +80,11 @@ class AdminProduitsController extends AbstractController
      */
     public function edit (Produits $produit, Request $request)
     {
-
+        
         $form = $this->createForm(ProduitsType::class, $produit);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()){
-            $this->em->persist($produit);
             $this->em->flush();
-
             if ($produit->getFilename() !== null) {
                 $path = '../public/images/produits/' . $produit->getFilename();
                 $type = pathinfo($path, PATHINFO_EXTENSION);

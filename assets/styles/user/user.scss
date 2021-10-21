@@ -5,5 +5,26 @@
  color: $secondarycolor
 }
 
+main {
+    padding-left: 5%;
+    padding-top: 5%;
+}
 
+.history {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 2em;
+}
 
+.commande-history {
+    margin-right: 2em;
+}
+
+.commande {
+    border-collapse: collapse;
+    border: 2px solid $thirdcolor;
+}
+.commande-reference {
+    border-bottom: 2px solid $thirdcolor;
+    text-align: center;
+}

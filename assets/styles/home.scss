@@ -4,14 +4,21 @@
 
 .row {
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 960px) {
+
+    .row {
+        flex-direction: column;
+    }
 }
 
 .col {
     flex : 1;
 }
 .col-2 {
-    flex: 2
+    flex: 2;
 }
 .col-3 {
     flex: 3;

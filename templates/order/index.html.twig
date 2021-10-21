@@ -16,16 +16,17 @@
             <tbody>
                 {% for produit in produits %}
                 <tr>
-                    <th>{{ produit.produit.name }}</th>
-                    <th>{{ produit.quantite }}</th>
-                    <th>{{ produit.produit.prix }}</th>
+                    <td>{{ produit.produit.name }}</td>
+                    <td>{{ produit.quantite }}</td>
+                    <td>{{ produit.produit.prix }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
              <tfoot>
              <tr>
-                 <td colspan="2">Total</td>
-                 <td>{{ order.price }}</td>
+                <td style="opacity: 0"></td>
+                <td>Total</td>
+                <td>{{ order.price }}</td>
              <tr>
 
              </tr>

@@ -22,7 +22,7 @@
                 <tr>
                     <td>{{ option.name}}</td>
                     <td>
-                        <a href="{{ path('admin_option_edit', {id: option.id}) }}" class="btn btn-secondary">Editer</a>
+                        <a href="{{ path('admin_option_edit', {id: option.id}) }}" class="btn btn-secondary"> <button class="myButton3">Editer</button></a>
                         <form method="POST" action="{{ path('admin_option_delete', {id: option.id}) }}"
                               style="display: inline-block" onsubmit="return confirm('Êtes vous vraiment sûr ?')">
                             <input type="hidden" name="_method" value="DELETE">

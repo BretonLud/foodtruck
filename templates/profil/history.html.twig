@@ -3,19 +3,33 @@
 {% block title 'Historique de commande' %}
 
 {% block body %}
-    {% for command in commands %}
-        <div>
-            {{ command.order.reference }}
-            {% for produit in command.produits %}
-            <div style="display: flex">
-                {{ produit.produit.name }}
-                {{ produit.quantity }}
-                {{ produit.produit.prix }}
-
+    <div class="history">
+        {% for command in commands %}
+        <table class="commande">
+            <div class="commande-history">
+                <thead  class="commande-reference">
+                    <th>{{ command.order.reference }}</th>
+                </thead>
+                {% for produit in command.produits %}
+                <div style="display: flex">
+                    <tbody>
+                        <tr>
+                            <td>{{ command.order.createdAt|date("m/d/Y, H:i") }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ produit.produit.name }}</td>
+                            <td>{{ produit.quantity }} x</td>
+                            <td>{{ produit.produit.prix }}</td>
+                        </tr>
+                    </tbody>
+                </div>
+                {% endfor %}
+                <tfoot>
+                   <td>Total : {{ command.order.price }}</td> 
+                </tfoot>
             </div>
-            {% endfor %}
-            <p>Total : {{ command.order.price }}</p>
-        </div>
+        </table>
 
-    {% endfor%}
+        {% endfor %}
+    </div>
 {% endblock %}
