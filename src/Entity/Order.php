@@ -15,7 +15,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Order
 {
 
-    const DEVISE = 'eur';
     use StripeTrait;
 
     /**

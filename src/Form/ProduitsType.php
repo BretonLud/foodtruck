@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class ProduitsType extends AbstractType
 {
@@ -22,7 +23,13 @@ class ProduitsType extends AbstractType
                 'label' => 'Prix: '
             ])
             ->add('imageFile', FileType::class, [
-                'required' => false
+                'required' => false,
+                'constraints' => new File([
+                    'mimeTypes' => [
+                        'image/*'
+                    ],
+                    'mimeTypesMessage' => "Veuillez mettre des fichiers format image"
+                ])
             ])
             ->add('options', EntityType::class, [
                 'class' => Option::class,

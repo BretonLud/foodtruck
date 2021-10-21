@@ -6,13 +6,16 @@ use App\Repository\ProduitsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Cocur\Slugify\Slugify;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProduitsRepository::class)
  * @Vich\Uploadable
+ * @UniqueEntity("name")
  */
 class Produits
 {
@@ -30,6 +33,7 @@ class Produits
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank 
      */
     private $description;
 

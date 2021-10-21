@@ -4,8 +4,9 @@
         <div class="col-md-4">{{ form_row(form.prix) }}</div>
     </div>
     <div class="row">
+        {{ form_errors(form.imageFile) }}
         {{ form_label(form.imageFile,'Fichier image', {'label_attr': {'class': 'myButton3'}}) }}
-        <div>{{ form_widget(form.imageFile) }}</div>
+        {{ form_widget(form.imageFile) }}
     </div>
     {{ form_row(form.description) }}
     {{ form_row(form.options)}}
