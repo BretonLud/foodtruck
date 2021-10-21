@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Cocur\Slugify\Slugify;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProduitsRepository::class)
@@ -48,6 +49,10 @@ class Produits
     /**
      * @var string|null
      * @ORM\Column (type="string", length=255, nullable=true)
+     * @Assert\File(
+     *     mimeTypes = {"image/png", "image/jpeg"},
+     *     mimeTypesMessage="The mime type of the file is invalid ({{ type }}). Allowed mime types are {{ types }}."
+     * )
      */
     private $filename;
 

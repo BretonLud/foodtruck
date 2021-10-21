@@ -86,7 +86,6 @@ class AdminProduitsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()){
             $this->em->flush();
-
             if ($produit->getFilename() !== null) {
                 $path = '../public/images/produits/' . $produit->getFilename();
                 $type = pathinfo($path, PATHINFO_EXTENSION);

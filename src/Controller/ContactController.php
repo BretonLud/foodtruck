@@ -28,7 +28,7 @@ use Symfony\Component\Routing\Annotation\Route;
             $notification->notify($contact);
             $this->addFlash('success', 'Votre email a bien été envoyé, nous vous répondrons dans les plus bref délais');
             return $this->redirectToRoute('contact_index');
-        } else {
+        } else if ($form->isSubmitted() && !$form->isValid() ){
             $this->addFlash('error', 'Votre email n\'a pas pu être envoyé');
         }
 
