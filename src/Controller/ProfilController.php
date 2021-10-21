@@ -98,14 +98,19 @@ class ProfilController extends AbstractController
 
                 if (!empty($mdp) && !empty($mdp2)) {
                     if ($mdp == $mdp2) {
-                        if (strlen($mdp) >= 8) {
-                            $user->setPassword($passwordHasher->hashPassword($user, $mdp));
-                            $em->flush();
-                            $this->addFlash('message', 'Mot de passe mis a jour avec succès');
+                        $pattern = '((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,64})';
+                        if(preg_match($pattern, $mdp)) {
+                            if (strlen($mdp) >= 8) {
+                                $user->setPassword($passwordHasher->hashPassword($user, $mdp));
+                                $em->flush();
+                                $this->addFlash('message', 'Mot de passe mis a jour avec succès');
 
-                            return $this->redirectToRoute('profil_index');
+                                return $this->redirectToRoute('profil_index');
+                            } else {
+                                $this->addFlash('error', 'Le mot de passe doit faire 8 caractères minimum');
+                            }
                         } else {
-                            $this->addFlash('error','Le mot de passe doit faire 8 caractères minimum');
+                            $this->addFlash('error', 'Le mot de passe doit contenir 1 majuscule, 1 chiffre et 1 caractère spécial');
                         }
                     } else {
                         $this->addFlash('error', 'Les deux mots de passe ne sont pas identiques');

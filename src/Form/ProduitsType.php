@@ -24,15 +24,12 @@ class ProduitsType extends AbstractType
             ])
             ->add('imageFile', FileType::class, [
                 'required' => false,
-                'constraints' => [
-                    new File([
-                        'mimeTypes' => [
-                            'image/jpeg',
-                            'image/png'
-                        ],
-                        'mimeTypesMessage' => "L'image doit être en jpeg ou png.",
-                    ])
-                ],
+                'constraints' => new File([
+                    'mimeTypes' => [
+                        'image/*'
+                    ],
+                    'mimeTypesMessage' => "Veuillez mettre des fichiers format image"
+                ])
             ])
             ->add('options', EntityType::class, [
                 'class' => Option::class,
