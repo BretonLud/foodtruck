@@ -1,5 +1,11 @@
 .login{
-    display: flex;
+  border: $thirdcolor solid 3px;
+  width: 30%;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .row {
@@ -45,5 +51,33 @@
   
   .card-title {
     margin-bottom: 0.5rem;
+  }
+
+  .app{
+    margin-top: 1em;
+    display: flex;
+    margin-bottom: 1em;
+    justify-content: space-between;
+  }
+
+  .app img {
+    width: 30%;
+  }
+
+  .app__user{
+    border: $thirdcolor solid 3px;
+    width: 30%;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    justify-content: center;
+  }
+
+  .app__user p{
+    margin-bottom: 1em;
   }
   
