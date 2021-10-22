@@ -2,6 +2,8 @@
 @import './nav.scss';
 @import './header.scss';
 @import './boutons.scss';
+@import './footer.scss';
+
 
 
 /*** Général ***/
@@ -148,7 +150,7 @@ body {
     .bouton-panier {
       position: fixed;
       bottom: 150px;
-      right: 5px
+      right: 35px
     }
   }  
   
