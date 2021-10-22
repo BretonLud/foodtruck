@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,14 +22,11 @@
 
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
-        {{ encore_entry_script_tags('app') }}
-        {% block javascripts %}
-            
-            
-        {% endblock %}
+
+
     </head> 
     <body>
-      <header>
+      <header class="header-desktop">
         <nav>
             <div class="nav">
                 <div class="menu">
@@ -53,18 +50,41 @@
                         </li>
                         {% endif %}
                     </ul>
-
                 </div>
             </div>
         </nav>
     </header>
+    
+    <header class="header-burger"><h1 class="header-title">Simply Awesome Burger</h1><div id="menu-button" class="close"></div></header>
+        <nav id="menu-burger" class="">
+            <ul>
+                <li><a href="{{ path('indexpage') }}" class="lien">Acceuil</a></li>
+                <li><a href="{{ path('produit')}}" id="1" class="lien">Notre carte</a></li>
+                <li><a href="{{ path('contact_index') }}" id="4" class="lien">Contact</a></li>
+                {% if is_granted('ROLE_USER') %}
+                <li><a href="{{ path('profil_index') }}" class="lien">Mon compte</a></li>
+                 {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('admin_index') }}" class="lien">Administration</a></li>
+                {% endif %}
+                {% if is_granted('ROLE_MODO') %}
+                <li><a href="{{ path('admin_produits_index') }}" class="lien">Modération</a></li>
+                {% endif %}
+                {% endif %}
+            </ul>
+        </nav>
         {% block body %}
-        
+  
         {% endblock %}
         <footer>
         
         </footer>
 
+            {{ encore_entry_script_tags('app') }}
+        {% block javascripts %}
+
+
+        {% endblock %}
+        
     </body>
     
 </html>

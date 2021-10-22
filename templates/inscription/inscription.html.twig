@@ -6,9 +6,14 @@
     <form class="form" method="post">
         {{ form_start(registrationForm) }}
                 <h1>Inscription</h1>
-                {{ form_row(registrationForm.email) }}
-                {{ form_row(registrationForm.plainPassword.first) }}
-                {{ form_row(registrationForm.plainPassword.second) }}
+                <div class="form-error">{{ form_errors(registrationForm.email)}}</div>
+                {{ form_label(registrationForm.email) }}
+                {{ form_widget(registrationForm.email) }}
+                <div class="form-error">{{ form_errors(registrationForm.plainPassword.first)}}</div>
+                {{ form_label(registrationForm.plainPassword.first) }}
+                {{ form_widget(registrationForm.plainPassword.first) }}
+                {{ form_label(registrationForm.plainPassword.second) }}
+                {{ form_widget(registrationForm.plainPassword.second) }}
                 <fieldset class="sweet-candy">
                         {{ form_row(registrationForm.Postal_code)}}
                 </fieldset>

@@ -5,6 +5,7 @@
 @import './nav.scss';
 @import './boutons.scss';
 @import './formulaire.scss';
+@import './table.scss';
 
 
 *{
@@ -18,6 +19,7 @@ body{
     width: 1280px;
     margin: auto
 }
+
 
 @media screen and (max-width: 960px) {
 
@@ -34,33 +36,3 @@ a {
 }
 
 
-/*** Table ***/
-
-table {
-	width:100%;
-	border:1px solid $thirdcolor;
-}
-th {
-	background:$thirdcolor;
-    color: $secondarycolor;
-	
-}
-td {
-	border:1px solid $thirdcolor;
-
-}
-tr {
-	width:100%;	
-    text-align: center;
-	&:nth-of-type(even) {
-		background:$mainColor;
-        color: $secondarycolor;
-        & a {
-            color: $secondarycolor;
-        }
-	}
-}
-
-.commande-history {
-	margin: 10px;
-}

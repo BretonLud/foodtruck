@@ -3,7 +3,9 @@
 {% block title 'Administration' %}
 
 {% block body %}
-    <a href="{{ path('admin_utilisateurs') }}"><button class="myButton">Utilisateurs</button> </a>
-    <a href="{{ path('admin_produits_index') }}"><button class="myButton2">Produits</button></a>
-    <a href="{{ path('admin_option_index') }}"><button class="myButton">Options produits</button></a>
+    <div class="admin-button row">
+        <a href="{{ path('admin_utilisateurs') }}"><button class="myButton">Utilisateurs</button> </a>
+        <a href="{{ path('admin_produits_index') }}"><button class="myButton2">Produits</button></a>
+        <a href="{{ path('admin_option_index') }}"><button class="myButton">Options produits</button></a>
+    </div>
 {% endblock %}

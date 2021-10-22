@@ -21,10 +21,17 @@ body {
   h1, h2, h3 {
     margin: 0.5rem 0;
   }
+
+  @media screen and (max-width: 960px) {
+    h1, h2, h3 {
+      margin: 0;
+    }
+  }
   
   h1 {
     font-size: 1.5rem;
   }
+
   
   h2 {
     font-size: 1.2rem;

@@ -1,6 +1,6 @@
 @import './variable.scss';
 
-nav {
+.header-desktop nav {
     background-color: $mainColor;
     color: $secondarycolor;
     height: 3.5em;
@@ -8,21 +8,117 @@ nav {
     width: 100%;
 }
 
-nav a {
+.header-desktop nav a {
     color: $secondarycolor;
 }
 
-li {
+.header-desktop li {
     list-style-type: none;
 }
 
+/*** burger ***/
+.header-burger{
+    display: none;
+    padding:0 12px;
+    position:relative;
+    z-index:999;
+    width:100%;
+    max-width:960px;
+    color: #fff;
+    background: $mainColor;
+    box-sizing:border-box;
+    border-bottom:1px solid #fff;
+  }
+
+  @media screen and (max-width: 960px) {
+      .header-burger {
+          display: block;
+      }
+      
+  }
+  
+  .header-title{
+    line-height:50px;
+    font-size:22px;
+  }
+  #menu-burger ul,.menu-burger li{
+    display:block;
+  } 
+  #menu-burger ul {
+      right:0;
+  }
+  #menu-burger li{
+    height:50px;
+    line-height:50px;
+    padding:0 12px;
+    color: $secondarycolor;
+    background: $mainColor;
+    list-style: none;
+  }
+  
+  .header-burger #menu-button{
+    position:absolute;
+    top:0;
+    right:0;
+    width:50px;
+    height:50px;
+    overflow:hidden;
+    background:#fff;
+    color:#000;
+    line-height:50px;
+    text-align:center;
+    font-size:40px;
+    cursor:pointer;
+    transition:all .5s;
+  }
+  
+  
+  .header-burger #menu-button::after{
+    content:'×';
+  }
+  .header-burger #menu-button.close{
+    color:#fff;
+    background: $thirdcolor;
+  }
+  .header-burger #menu-button.close::after{
+    content:'≡';
+  }
+  
+  #menu-burger{
+    display: none;
+    transition:transform .5s;
+    position:absolute;
+    right: 0;
+    width: auto;
+    max-width:480px;
+    transform:translateY(-300px);
+  
+  }
+
+  #menu-burger a {
+    color: $secondarycolor;
+  }
+  #menu-burger.show-menu{
+      display: flex;
+      justify-self: right;
+    transform:translateY(0px);
+  }
+
 @media screen and (max-width: 960px) {
-    nav {
+
+    .header-desktop {
+        display: none;
+    }
+    .header-desktop nav {
         text-align: center;
         height: 4.5rem;
         line-height: 2rem;
     }
-    li {
+    .header-desktop li {
         width: 40%;
+    }
+
+    #menu-burger {
+        display: block;
     }
 }

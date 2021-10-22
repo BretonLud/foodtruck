@@ -9,7 +9,6 @@ import axios from "axios";
     
 export default function Basket(props) {
     const {cartItems, onAdd, onRemove, loggedIn, sessionMail} = props
-    {console.log(sessionMail)}
     const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0)
     //const taxPrice = itemsPrice * 0.10
     //const shippingPrice = itemsPrice > 20 ? 0 : 3

@@ -1,0 +1,28 @@
+@import "./variable.scss";
+/*** Table ***/
+
+table {
+	width:100%;
+	border:1px solid $thirdcolor;
+    border-collapse: collapse;
+}
+th {
+	background:$thirdcolor;
+    color: $secondarycolor;
+	
+}
+td {
+	border:1px solid $thirdcolor;
+
+}
+tr {
+	width:100%;	
+    text-align: center;
+	&:nth-of-type(even) {
+		background:$mainColor;
+        color: $secondarycolor;
+        & a {
+            color: $secondarycolor;
+        }
+	}
+}
