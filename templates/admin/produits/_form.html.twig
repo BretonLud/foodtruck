@@ -1,7 +1,7 @@
 {{ form_start(form) }}
     <div class="row">
         <div class="col-md-4">{{ form_row(form.name) }}</div>
-        <div class="col-md-4">{{ form_row(form.prix) }}</div>
+        <div class="col-md-4">{{ form_label(form.prix) }}{{ form_widget(form.prix) }}</div>
     </div>
     <div class="row">
         {{ form_errors(form.imageFile) }}
