@@ -1,0 +1,79 @@
+@import './variable.scss';
+
+/*** bouton ***/
+
+button {
+    font-size: .9rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 3px;
+    padding: .3rem 1rem;
+    margin-left: .5rem;
+    color: $secondarycolor;
+  }
+  
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 0.2rem;
+    margin: 0.1rem;
+    border-radius: 0.5rem;
+    border: 0.1rem #404040 solid;
+    background-color: $thirdcolor;
+    cursor: pointer;
+  }
+  
+  .btn-category {
+    width: 100%;
+  }
+  
+  .btn-product {
+    width: 50%;
+  }
+  
+  .btn-product-modal {
+    width: 50%;
+  }
+  
+  .btn.add {
+    background-color: $thirdcolor;
+    width: 1.5rem;
+  }
+  
+  .btn.remove {
+    background-color: $mainColor;
+    width: 1.5rem;
+  }
+  
+  .btn.badge {
+    background-color: $thirdcolor;
+    border: none;
+    color: $secondarycolor;
+    width: 1.5rem;
+  
+  }
+  .buttons {
+    display: flex;
+  }
+
+  .button-default {
+    background: #247BA0;
+    color: #fff;
+  }
+
+  @media screen and (max-width: 960px) {
+    .buttons {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn-category {
+      width: 30%;
+    }
+    .bouton-panier {
+        position: fixed;
+        bottom: 150px;
+        right: 35px
+    }
+      
+  }
+  

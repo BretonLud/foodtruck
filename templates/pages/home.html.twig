@@ -7,6 +7,9 @@
             <img src="{{ asset("build/images/foodtruck.jpg") }}" alt="img foodtruck">
             {% if app.user%}
                 <div class="app__user">
+<<<<<<< HEAD
+                    <p>Bonjour, {{ app.user.email }}</p>
+=======
                     <p>
                         Bonjour
                         {% if (app.user.firstname or app.user.name) %}
@@ -15,6 +18,7 @@
                             {{ app.user.email }}
                         {% endif %}
                     </p>
+>>>>>>> 15c6f19e10d362750935d5a8b045af56388a67bd
                     <a href="{{ path('app_logout') }}" ><button class="myButton">Se déconnecter</button> </a>
                 </div>
             {% else %}

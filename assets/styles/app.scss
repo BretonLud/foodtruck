@@ -21,7 +21,6 @@ body{
     margin: auto
 }
 
-
 @media screen and (max-width: 960px) {
 
     body {
@@ -35,5 +34,45 @@ a {
     text-decoration: none;
     color: black;
 }
+
+
+h1, h2, h3 {
+    margin: 0.5rem 0;
+  }
+
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  
+  h2 {
+    font-size: 1.2rem;
+  }
+  
+  h3 {
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 960px) {
+    h1, h2, h3 {
+      margin: 0;
+    }
+  }
+  
+  /*** Flex **/
+  .col-1 {
+    flex: 1;
+  }
+  .col-2 {
+    flex: 2;
+  }
+  .col-3 {
+    flex: 3;
+  }
+  .col-4 {
+    flex: 4;
+  }
+  
 
 
