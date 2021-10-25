@@ -1,9 +1,9 @@
 .myButton,.edit-form button {
 	box-shadow:inset 0px 1px 0px 0px #f5978e;
-	background:linear-gradient(to bottom, #d31e45 5%, #771722 100%);
-	background-color:#d31e45;
+	background:linear-gradient(to bottom, $mainColor 5%, $thirdcolor 100%);
+	background-color:$mainColor;
 	border-radius:6px;
-	border:1px solid #d31e45;
+	border:1px solid $mainColor;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -12,11 +12,11 @@
 	font-weight:bold;
 	padding:6px 24px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #771722;
+	text-shadow:0px 1px 0px $thirdcolor;
 }
 .myButton:hover,.edit-form button:hover {
-	background:linear-gradient(to bottom, #771722 5%, #d31e45 100%);
-	background-color:#771722;
+	background:linear-gradient(to bottom, $thirdcolor 5%, $mainColor 100%);
+	background-color:$thirdcolor;
 }
 .myButton:active,.edit-form button:active {
 	position:relative;
@@ -25,10 +25,10 @@
 
 .myButton2 {
 	box-shadow:inset 0px 1px 0px 0px #f5978e;
-	background:linear-gradient(to bottom, #771722 5%, #d31e45 100%);
-	background-color:#771722;
+	background:linear-gradient(to bottom, $thirdcolor 5%, $mainColor 100%);
+	background-color:$thirdcolor;
 	border-radius:6px;
-	border:1px solid #771722;
+	border:1px solid $thirdcolor;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -37,11 +37,11 @@
 	font-weight:bold;
 	padding:6px 24px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #d31e45;
+	text-shadow:0px 1px 0px $mainColor;
 }
 .myButton2:hover {
-	background:linear-gradient(to bottom, #d31e45 5%, #771722 100%);
-	background-color:#d31e45;
+	background:linear-gradient(to bottom, $mainColor 5%, $thirdcolor 100%);
+	background-color:$mainColor;
 }
 .myButton2:active {
 	position:relative;
@@ -49,8 +49,8 @@
 }
 
 .myButton3 {
-	box-shadow:inset 0px 39px 0px -24px #d31e45;
-	background-color:#771722;
+	box-shadow:inset 0px 39px 0px -24px $mainColor;
+	background-color:$thirdcolor;
 	border-radius:4px;
 	border:1px solid #ffffff;
 	display:inline-block;
@@ -60,10 +60,10 @@
 	font-size:15px;
 	padding:6px 15px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #771722;
+	text-shadow:0px 1px 0px $thirdcolor;
 }
 .myButton3:hover {
-	background-color:#d31e45;
+	background-color:$mainColor;
 }
 .myButton3:active {
 	position:relative;
@@ -74,8 +74,8 @@
 /*** Menu ***/
 .myButton-cat {
 	box-shadow: 1px 2px 0px 0px #899599;
-	background:linear-gradient(to bottom, #d31e45 5%, #771722 100%);
-	background-color:#d31e45;
+	background:linear-gradient(to bottom, $mainColor 5%, $thirdcolor 100%);
+	background-color:$mainColor;
 	border-radius:13px;
 	display:inline-block;
 	cursor:pointer;
@@ -84,11 +84,11 @@
 	font-size:17px;
 	padding:7px 25px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #771722;
+	text-shadow:0px 1px 0px $thirdcolor;
 }
 .myButton-cat:hover {
-	background:linear-gradient(to bottom, #771722 5%, #d31e45 100%);
-	background-color:#771722;
+	background:linear-gradient(to bottom, $thirdcolor 5%, $mainColor 100%);
+	background-color:$thirdcolor;
 }
 .myButton-cat:active {
 	position:relative;
