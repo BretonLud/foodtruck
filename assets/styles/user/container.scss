@@ -1,0 +1,51 @@
+.container{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.container--width{
+  display: flex;
+  width: 1280px;
+}
+
+.container__sidenav{
+  height: 780px;
+}
+
+.sidenav{
+  display: flex;
+  flex-direction: column;
+  border-left: #d31e44 solid 1px;
+  border-right: #d31e44 solid 1px;
+  padding: 4em 2em;
+  height: 100%;
+}
+
+.sidenav-link{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 20%;
+}
+
+.main{
+  width: 100%;
+}
+
+.grix{
+  display: flex;
+  flex-direction: column;
+}
+
+.grix--flex{
+  display: flex;
+  justify-content: left;
+  margin-top: 5%;
+}
+
+@media screen and (max-width: 960px) {
+  .container{
+    display: none;
+  }
+}

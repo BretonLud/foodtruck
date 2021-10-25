@@ -10,37 +10,35 @@
 {% endblock %}
 
 {% block body %}
-    <div class="grix xs4 container">
+    <div class="grix xs4">
         {% for message in app.flashes('message') %}
-            <div class="col-xs4">
-                <div class="p-3 my-2 rounded-2 success">{{ message }}</div>
+            <div class="col-2">
+                <div class="success">{{ message }}</div>
             </div>
         {% endfor %}
         {% if (app.user.firstname or app.user.name) %}
-            <div class="col-xs4">
+            <div class="col-2">
                 <h1>Profil de {{ app.user.firstname }} {{ app.user.name }}</h1>
             </div>
-            <div class="col-xs1">Nom :</div>
-            <div class="col-xs3">{{ app.user.name }}</div>
-            <div class="col-xs1">Prénom :</div>
-            <div class="col-xs3">{{ app.user.firstname }}</div>
+            <div class="grix--flex">
+                <div class="col-2">Nom :</div>
+                <div class="col-3">{{ app.user.name }}</div>
+            </div>
+            <div class="grix--flex">
+                <div class="col-2">Prénom :</div>
+                <div class="col-3">{{ app.user.firstname }}</div>
+            </div>
         {% else %}
-            <div class="col-xs4">
+            <div class="col-2">
                 <h1>Profil de {{ app.user.email }}</h1>
             </div>
         {% endif %}
-        <div class="col-xs1">Email :</div>
-        <div class="col-xs3">{{ app.user.email }}</div>
+        <div class="grix--flex">
+            <div class="col-2">Email :</div>
+            <div class="col-3">{{ app.user.email }}</div>
+        </div>
         <div>
 
         </div>
-
-        {#
-        <div class="col-xs4">
-             <h1>Vos dernières commandes</h1>({{ app.user.orders|length }}
-        </div>
-        {% for order in orders %}
-            <div class="col-xs1"></div>
-        {% endfor %} #}
     </div>
 {% endblock %}

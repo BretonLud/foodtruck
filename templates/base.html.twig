@@ -3,23 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Accueil{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-            <style>
-                fieldset.sweet-candy
-                {
-                    opacity:0;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    height: 0;
-                    width: 0;
-                    z-index: -1;
-                }
-            </style>
-
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
@@ -31,7 +18,7 @@
             <div class="nav">
                 <div class="menu">
                     <ul id="menu" class="nav__ul">
-                        <li class="logo_img"> <a href="{{ path('indexpage') }}" class="lien">Accueil</a></li>
+                        <li> <a href="{{ path('indexpage') }}" class="lien">Accueil</a></li>
                         <li> <a href="{{ path('produit')}}" id="1" class="lien">Notre carte</a> </li>
                         <li> <a href="{{ path('contact_index') }}" id="4" class="lien">Contact</a> </li>
                         {% if is_granted('ROLE_USER') %}
@@ -58,7 +45,7 @@
     <header class="header-burger"><h1 class="header-title">Simply Awesome Burger</h1><div id="menu-button" class="close"></div></header>
         <nav id="menu-burger" class="">
             <ul>
-                <li><a href="{{ path('indexpage') }}" class="lien">Acceuil</a></li>
+                <li><a href="{{ path('indexpage') }}" class="lien">Accueil</a></li>
                 <li><a href="{{ path('produit')}}" id="1" class="lien">Notre carte</a></li>
                 <li><a href="{{ path('contact_index') }}" id="4" class="lien">Contact</a></li>
                 {% if is_granted('ROLE_USER') %}

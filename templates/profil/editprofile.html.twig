@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block body %}
-    <div class="grix xs4 container">
+    <div class="grix">
         <div class="col-xs4">
             {% if (app.user.firstname or app.user.name) %}
                 <h1>Modification du profil de {{ app.user.firstname }} {{ app.user.name }}</h1>
@@ -31,7 +31,7 @@
          {{ form_label(form.firstname, 'Prénom :')}}
          {{ form_widget(form.firstname, {'attr': {'class': 'form-control rounded-2'}}) }}
         </div>
-         {{ form_row(form.Valider, {'attr': {'class': 'btn blue rounded-2'}}) }}
+         {{ form_row(form.Valider, {'attr': {'class': 'myButton3'}}) }}
         {{ form_end(form) }}
     </div>
 {% endblock %}
