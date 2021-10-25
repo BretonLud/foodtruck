@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block body %}
-    <div class="grix xs4 container">
+    <div class="grix">
         {% for message in app.flashes('error') %}
             <div class="col-xs4">
                 <div class="p-3 my-2 rounded-2 error">{{ message }}</div>
@@ -36,7 +36,7 @@
                 <label for="mdp2">Confirmer le mot de passe : </label>
                 <input type="password" id="mdp2" name="pass2" class="form-control rounded-2" required>
             </div>
-            <button class="btn blue rounded-2">Valider</button>
+            <button class="myButton3">Valider</button>
         </form>
     </div>
 {% endblock %}
