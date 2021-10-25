@@ -13,6 +13,10 @@
     flex-wrap: wrap;
 }
 
+.container {
+  padding-bottom: 5em;
+}
+
 @media screen and (max-width: 960px) {
   .login{
     border: $thirdcolor solid 1px;
