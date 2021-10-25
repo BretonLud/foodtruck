@@ -8,6 +8,8 @@ footer{
   align-items: center;
   padding: 1em;
   color: white;
+  box-sizing: border-box;
+
 }
 
 footer img {
@@ -25,7 +27,6 @@ footer img {
   footer{
     width: 100%;
     justify-content: space-around;
-    box-sizing: border-box;
   }
 
   footer img {

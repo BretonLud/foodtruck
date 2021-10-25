@@ -7,7 +7,7 @@
             <img src="{{ asset("build/images/foodtruck.jpg") }}" alt="img foodtruck">
             {% if app.user%}
                 <div class="app__user">
-                    <p>Vous êtes connecté en tant que {{ app.user.email }}</p>
+                    <p>Bonjour, {{ app.user.email }}</p>
                     <a href="{{ path('app_logout') }}" ><button class="myButton">Se déconnecter</button> </a>
                 </div>
             {% else %}
