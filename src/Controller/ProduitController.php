@@ -42,11 +42,10 @@ Class ProduitController extends AbstractController{
     /**
      * @Route("/carte", name="produit")
      */
-
     public function index(Request $request) : Response
     {
         $produits =
-            $this->repository->findLatest();
+            $this->repository->findAll();
 
 
 
