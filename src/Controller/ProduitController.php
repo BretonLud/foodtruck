@@ -4,11 +4,12 @@ namespace App\Controller;
 
 
 
-use App\Entity\Order;
+
 use App\Entity\Produits;
-use App\Entity\User;
+
 use App\Repository\ProduitsRepository;
-use App\Service\Stripe;
+
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -45,7 +46,7 @@ Class ProduitController extends AbstractController{
     public function index(Request $request) : Response
     {
         $produits =
-            $this->repository->findAll();
+            $this->repository->findLatest();
 
 
 

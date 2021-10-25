@@ -3,13 +3,12 @@ footer{
   justify-content: space-between;
   background: $mainColor;
   width: 1280px;
-  position: absolute;
+  position: relative;
   bottom: 0;
   align-items: center;
   padding: 1em;
   color: white;
   box-sizing: border-box;
-
 }
 
 footer img {
@@ -20,11 +19,15 @@ footer img {
   width: 40%;
   display: flex;
   justify-content: space-around;
-  cursor: pointer;
+
 }
 
+.footer__img img {
+  cursor: pointer;
+
+}
 @media screen and (max-width: 960px) {
-  footer{
+  footer {
     width: 100%;
     justify-content: space-around;
   }
@@ -32,9 +35,9 @@ footer img {
   footer img {
     width: 30px;
   }
-  
-  .footer__img{
+
+  .footer__img {
     width: 20%;
   }
-  
 }
+  

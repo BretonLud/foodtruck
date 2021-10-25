@@ -4,7 +4,6 @@ namespace App\Repository;
 
 use App\Entity\Produits;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -29,6 +28,7 @@ class ProduitsRepository extends ServiceEntityRepository
     {
         return $this->findVisibleQuery()
             ->setMaxResults(6)
+            ->orderBy('p.created_at', 'DESC')
             ->getQuery()
             ->getResult();
     }
