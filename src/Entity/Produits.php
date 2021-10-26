@@ -224,10 +224,6 @@ class Produits
 
     }
 
-
-
-
-
     public function getStock(): ?bool
     {
         return $this->stock;
