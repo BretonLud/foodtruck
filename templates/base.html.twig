@@ -21,21 +21,19 @@
                         <li> <a href="{{ path('indexpage') }}" class="lien">Accueil</a></li>
                         <li> <a href="{{ path('produit')}}" id="1" class="lien">Notre carte</a> </li>
                         <li> <a href="{{ path('contact_index') }}" id="4" class="lien">Contact</a> </li>
-                        {% if is_granted('ROLE_USER') %}
+                    {% if is_granted('ROLE_USER') %}
                         <li>
-                            {% if is_granted('ROLE_USER') %}
-                                <a href="{{ path('profil_index') }}" class="lien">Mon compte</a>
-                            {% endif %}
+                            <a href="{{ path('profil_index') }}" class="lien">Mon compte</a>
                         </li>
+                    {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
                         <li>
-                            {% if is_granted('ROLE_ADMIN') %}
-                                <a href="{{ path('admin_index') }}" class="lien">Administration /</a>
+                            <a href="{{ path('admin_index') }}" class="lien">Administration /</a>
                             {% endif %}
                             {% if is_granted('ROLE_MODO') %}
-                                <a href="{{ path('admin_produits_index') }}" class="lien">Modération</a>
-                            {% endif %}
+                            <a href="{{ path('admin_produits_index') }}" class="lien">Modération</a>
                         </li>
-                        {% endif %}
+                    {% endif %}
                     </ul>
                 </div>
             </div>
