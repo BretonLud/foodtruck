@@ -17,16 +17,16 @@
             </div>
         {% endfor %}
         {% if (app.user.firstname or app.user.name) %}
-            <div class="col-2">
+            <div class="col-4">
                 <h1>Profil de {{ app.user.firstname }} {{ app.user.name }}</h1>
             </div>
             <div class="grix--flex">
-                <div class="col-2">Nom :</div>
-                <div class="col-3">{{ app.user.name }}</div>
+                <div class="col-1">Nom :</div>
+                <div class="col-8">{{ app.user.name }}</div>
             </div>
             <div class="grix--flex">
-                <div class="col-2">Prénom :</div>
-                <div class="col-3">{{ app.user.firstname }}</div>
+                <div class="col-1">Prénom :</div>
+                <div class="col-8">{{ app.user.firstname }}</div>
             </div>
         {% else %}
             <div class="col-2">
@@ -34,8 +34,8 @@
             </div>
         {% endif %}
         <div class="grix--flex">
-            <div class="col-2">Email :</div>
-            <div class="col-3">{{ app.user.email }}</div>
+            <div class="col-1">Email :</div>
+            <div class="col-8">{{ app.user.email }}</div>
         </div>
         <div>
 

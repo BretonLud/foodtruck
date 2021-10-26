@@ -27,11 +27,17 @@ body{
     width: 1280px;
 }
 
+h1{
+    text-align: center;
+}
+
 
 
 a {
     text-decoration: none;
 }
+
+
 
 @media screen and(max-width: 1280px) {
 
@@ -53,4 +59,7 @@ a {
     }
     .col-4 {
         flex: 4;
+    }
+    .col-8{
+        flex: 8;
     }

@@ -10,16 +10,24 @@
 }
 
 .container__sidenav{
-  height: 780px;
+ width: 20%;
+}
+
+main {
+  padding-left: 5%;
+  padding-top: 5%;
+  width: 80%;
 }
 
 .sidenav{
+  position: relative;
   display: flex;
   flex-direction: column;
   border-left: #d31e44 solid 1px;
   border-right: #d31e44 solid 1px;
-  padding: 4em 2em;
-  height: 100%;
+  padding: 4em 1em;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 .sidenav-link{
@@ -29,9 +37,6 @@
   margin-bottom: 20%;
 }
 
-.main{
-  width: 100%;
-}
 
 .grix{
   display: flex;

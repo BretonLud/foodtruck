@@ -16,7 +16,7 @@
                 <div class="error">{{ message }}</div>
             </div>
         {% endfor %}
-        <div class="col-2">
+        <div class="col-4">
             {% if (app.user.firstname or app.user.name) %}
                 <h1>Modification du mot de passe de {{ app.user.firstname }} {{ app.user.name }}</h1>
             {% else %}
