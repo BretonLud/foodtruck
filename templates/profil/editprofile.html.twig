@@ -11,25 +11,27 @@
 
 {% block body %}
     <div class="grix">
-        <div class="col-xs4">
+        <div class="col-2">
             {% if (app.user.firstname or app.user.name) %}
                 <h1>Modification du profil de {{ app.user.firstname }} {{ app.user.name }}</h1>
             {% else %}
                 <h1>Modification du profil de {{ app.user.email}}</h1>
             {% endif %}
         </div>
-        {{ form_start(form)}}
+
+        {{ form_start(form, {'attr': {'class': 'form'}})}}
+
         <div class="form-field">
          {{ form_label(form.email, 'Modifier email :') }}
-         {{ form_widget(form.email, {'attr': {'class': 'form-control rounded-2'}}) }}
+         {{ form_widget(form.email) }}
         </div>
         <div class="form-field">
          {{ form_label(form.name, 'Nom :') }}
-         {{ form_widget(form.name, {'attr': {'class': 'form-control rounded-2'}}) }}
+         {{ form_widget(form.name) }}
         </div>
         <div class="form-field">
          {{ form_label(form.firstname, 'Prénom :')}}
-         {{ form_widget(form.firstname, {'attr': {'class': 'form-control rounded-2'}}) }}
+         {{ form_widget(form.firstname) }}
         </div>
          {{ form_row(form.Valider, {'attr': {'class': 'myButton3'}}) }}
         {{ form_end(form) }}
