@@ -36,7 +36,7 @@ let cat = [...new Set(products.map(product => product.category))]
 let tab = []
 
 cat.forEach(category => tab.push(...category))
-const categories = ['All', ...new Set(tab)]
+const categories = ['Tout', ...new Set(tab)]
 
 const allCategories = categories.filter(categories => categories !== undefined)
 
@@ -49,7 +49,7 @@ const [buttons] = useState(allCategories);
 
     const filter = (button) => {
 
-        if (button === 'All') {
+        if (button === 'Tout') {
             setMenuItem(products)
             return
         } 

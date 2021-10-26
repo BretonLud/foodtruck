@@ -5,21 +5,21 @@
 main {
   padding-left: 5%;
   padding-top: 5%;
+  width: 100%;
 }
 
 .history {
   display: flex;
   flex-wrap: wrap;
   row-gap: 2em;
+  justify-content: space-around;
 }
 
-.commande-history {
-  margin-right: 2em;
-}
 
 .commande {
   border-collapse: collapse;
   border: 2px solid $thirdcolor;
+  border-radius: 10%;
 }
 .commande-reference {
   border-bottom: 2px solid $thirdcolor;
