@@ -23,11 +23,15 @@ main {
   position: relative;
   display: flex;
   flex-direction: column;
-  border-left: #d31e44 solid 1px;
-  border-right: #d31e44 solid 1px;
+  //border-left: #d31e44 solid 1px;
+  //border-right: #d31e44 solid 1px;
   padding: 4em 1em;
   height: 100%;
   box-sizing: border-box;
+}
+
+.shadow-1{
+  box-shadow: 0 4px 8px $mainColor 2px 5px 2px $thirdcolor;
 }
 
 .sidenav-link{
