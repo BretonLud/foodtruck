@@ -23,23 +23,25 @@ main {
   position: relative;
   display: flex;
   flex-direction: column;
-  //border-left: #d31e44 solid 1px;
-  //border-right: #d31e44 solid 1px;
-  padding: 4em 1em;
+  border-left: #d31e44 solid 1px;
+  border-right: #d31e44 solid 1px;
+  padding: 4em 0;
   height: 100%;
   box-sizing: border-box;
 }
 
-.shadow-1{
-  box-shadow: 0 4px 8px $mainColor 2px 5px 2px $thirdcolor;
-}
 
 .sidenav-link{
   text-decoration: none;
   color: black;
   font-weight: bold;
-  margin-bottom: 20%;
+  padding: 2em 1em 2em;
+
 }
+
+.sidenav-link:hover {
+  background: #d31e44;
+  }
 
 
 .grix{
@@ -54,7 +56,10 @@ main {
 }
 
 @media screen and (max-width: 960px) {
-  .container{
-    display: none;
-  }
+  .container__sidenav {
+    width: 40%;
+    height: 90vh;
+    border-right: 1px solid #771722;
+    }
+
 }

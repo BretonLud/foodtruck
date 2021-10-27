@@ -5,30 +5,24 @@
 {% block body %}
     <div class="history">
         {% for command in commands %}
-        <table class="commande">
-            <div class="commande-history">
-                <thead  class="commande-reference">
-                    <th>{{ command.order.reference }}</th>
-                </thead>
+        <div class="form">
+            <div>
+                <div style="display: flex">
+                    <p class="col-1">{{ command.order.reference }}</p>
+                    <p class="col-1" style="text-align: right">{{ command.order.createdAt|date("m/d/Y, H:i") }}</p>
+                </div>
                 {% for produit in command.produits %}
                 <div style="display: flex">
-                    <tbody>
-                        <tr>
-                            <td>{{ command.order.createdAt|date("m/d/Y, H:i") }}</td>
-                        </tr>
-                        <tr>
-                            <td>{{ produit.produit.name }}</td>
-                            <td>{{ produit.quantity }} x</td>
-                            <td>{{ produit.produit.prix }}</td>
-                        </tr>
-                    </tbody>
+                    <p class="col-1">{{ produit.produit.name }}</p>
+                    <p style="width: 2em">{{ produit.quantity }} x </p>
+                    <p>{{ produit.produit.prix }} €</p>
                 </div>
                 {% endfor %}
-                <tfoot>
-                   <td>Total : {{ command.order.price }}</td> 
-                </tfoot>
+                <div style="display: flex; justify-content: right">
+                   <p>Total : {{ command.order.price }} €</p> 
+                </div>
             </div>
-        </table>
+        </div>
 
         {% endfor %}
     </div>
