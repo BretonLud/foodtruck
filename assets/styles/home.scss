@@ -81,6 +81,13 @@
   .app__user p{
     margin-bottom: 1em;
   }
+
+  .app-presentation {
+    height: auto;
+    text-align: center;
+    font-size: 5em;
+
+  }
   
 @media screen and (max-width: 960px) {
   .app__user{
