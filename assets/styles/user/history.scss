@@ -1,10 +1,8 @@
-
-
-
-
-
-
+.form-history {
+  margin: auto;
+}
 .history {
+  height: 93%;
   display: flex;
   flex-wrap: wrap;
   row-gap: 2em;
@@ -19,4 +17,16 @@
 }
 .commande-reference {
   font-weight: bold;
+}
+
+.orders__order {
+  display: flex;
+  padding-bottom: 0.5rem;
+}
+
+.order-qty {
+  width: 2em;
+}
+.order-total {
+  justify-content: right;
 }

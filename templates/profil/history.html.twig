@@ -4,30 +4,31 @@
 
 {% block body %}
 
-    <div class="history">
+    <div id="history" class="history">
         {% for command in commandes %}
-        <div class="form">
+        <div class="form form-history">
             <div>
-                <div style="display: flex">
+                <div class="orders__order">
                     <p class="col-1 commande-reference">N° {{ command.reference }}</p>
-                    <p class="col-1" style="text-align: right">{{ command.createdAt|date("m/d/Y, H:i") }}</p>
+                    <p class="col-1 text-right">{{ command.createdAt|date("m/d/Y, H:i") }}</p>
                 </div>
                 {% for produit in command.orderProduits %}
-                <div style="display: flex">
+                <div class="orders__order">
                     <p class="col-1">{{ produit.produits.name }}</p>
-                    <p style="width: 2em">{{ produit.quantity }} x </p>
+                    <p class="order-qty">{{ produit.quantity }} x </p>
                     <p>{{ produit.produits.prix }} €</p>
                 </div>
                 {% endfor %}
-                <div style="display: flex; justify-content: right">
+                <div class="orders__order order-total">
                    <p>Total : {{ command.price }} €</p>
                 </div>
             </div>
         </div>
 
         {% endfor %}
-        <div class="navigation">
-            {{ knp_pagination_render(commandes,'profil/pagination.html.twig') }}
-        </div>
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(commandes,'profil/pagination.html.twig') }}
     </div>
 {% endblock %}
+
