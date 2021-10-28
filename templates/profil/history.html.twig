@@ -8,7 +8,7 @@
         <div class="form">
             <div>
                 <div style="display: flex">
-                    <p class="col-1">{{ command.order.reference }}</p>
+                    <p class="col-1 commande-reference">N° {{ command.order.reference }}</p>
                     <p class="col-1" style="text-align: right">{{ command.order.createdAt|date("m/d/Y, H:i") }}</p>
                 </div>
                 {% for produit in command.produits %}
