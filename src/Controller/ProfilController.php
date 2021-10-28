@@ -134,18 +134,21 @@ class ProfilController extends AbstractController
     {
         $user = $this->getUser();
 
-        $orders = $this->orderRepository->findBy(['user' => $user]);
+        $orders = $this->orderRepository->findByUser($user);
 
-        $pagination = $paginator->paginate(
-            $orders,
-            $request->query->getInt('page', 1),
-            4
-        );
+
+
+            $pagination = $paginator->paginate(
+                $orders,
+                $request->query->getInt('page', 1),
+                4
+            );
+
 
 
        return $this->render('profil/history.html.twig', [
-           'commands' => $orders,
            'commandes' => $pagination
        ]);
     }
+
 }
