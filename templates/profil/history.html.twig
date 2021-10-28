@@ -3,33 +3,37 @@
 {% block title 'Historique de commande' %}
 
 {% block body %}
+
     <div class="history">
-        {% for command in commands %}
+        {% for command in commandes %}
         <table class="commande">
             <div class="commande-history">
                 <thead  class="commande-reference">
-                    <th>{{ command.order.reference }}</th>
+                    <th>{{ command.reference }}</th>
                 </thead>
-                {% for produit in command.produits %}
+                 {% for produit in command.orderProduits %}
                 <div style="display: flex">
                     <tbody>
-                        <tr>
-                            <td>{{ command.order.createdAt|date("m/d/Y, H:i") }}</td>
-                        </tr>
-                        <tr>
-                            <td>{{ produit.produit.name }}</td>
-                            <td>{{ produit.quantity }} x</td>
-                            <td>{{ produit.produit.prix }}</td>
-                        </tr>
+                    <tr>
+                        <td>{{ command.createdAt|date("m/d/Y, H:i") }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ produit.produits.name }}</td>
+                        <td>{{ produit.quantity }} x</td>
+                        <td>{{ produit.produits.prix }}</td>
+                    </tr>
                     </tbody>
                 </div>
                 {% endfor %}
                 <tfoot>
-                   <td>Total : {{ command.order.price }}</td> 
+                   <td>Total : {{ command.price }}</td>
                 </tfoot>
             </div>
         </table>
 
         {% endfor %}
+        <div class="navigation">
+            {{ knp_pagination_render(commandes,'profil/pagination.html.twig') }}
+        </div>
     </div>
 {% endblock %}

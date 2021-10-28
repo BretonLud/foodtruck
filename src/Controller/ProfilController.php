@@ -8,6 +8,7 @@ use App\Entity\User;
 use App\Form\EditProfileType;
 use App\Repository\OrderProduitsRepository;
 use App\Repository\OrderRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -129,23 +130,22 @@ class ProfilController extends AbstractController
      * @return Response
      * @Route("/history", name="history")
      */
-    public function history(): Response
+    public function history(PaginatorInterface $paginator, Request $request): Response
     {
         $user = $this->getUser();
 
         $orders = $this->orderRepository->findBy(['user' => $user]);
-        $cmd = [];
-        foreach($orders as $key => $order) {
-            $cmd[$key]['order'] = $order;
-            $orderprod = $order->getOrderProduits();//$this->orderProduitsRepository->findBy(['command' => $order]);
-            foreach ($orderprod as $keyProd => $prod) {
-                $cmd[$key]['produits'][$keyProd]['produit'] = $prod->getProduits();
-                $cmd[$key]['produits'][$keyProd]['quantity'] = $prod->getQuantity();
-            }
-        }
+
+        $pagination = $paginator->paginate(
+            $orders,
+            $request->query->getInt('page', 1),
+            4
+        );
+
 
        return $this->render('profil/history.html.twig', [
-           'commands' => $cmd
+           'commands' => $orders,
+           'commandes' => $pagination
        ]);
     }
 }

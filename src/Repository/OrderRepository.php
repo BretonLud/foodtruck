@@ -3,8 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\Order;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
+
 
 /**
  * @method Order|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,6 +21,7 @@ class OrderRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Order::class);
     }
+
 
     // /**
     //  * @return Order[] Returns an array of Order objects
