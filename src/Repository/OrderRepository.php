@@ -23,11 +23,6 @@ class OrderRepository extends ServiceEntityRepository
     }
 
     /**
-     * @var
-     */
-    private $user;
-
-    /**
      * @return Order[]
      */
     public function findByUser($user): array
