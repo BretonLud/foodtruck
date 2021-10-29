@@ -11,6 +11,7 @@
 
 .container__sidenav{
  width: 20%;
+ height: 100%;
 }
 
 main {
@@ -20,7 +21,7 @@ main {
 }
 
 .sidenav{
-  position: relative;
+  position: fixed;
   display: flex;
   flex-direction: column;
   border-left: #d31e44 solid 1px;
@@ -58,7 +59,10 @@ main {
   .container__sidenav {
     width: 40%;
     height: 90vh;
-    border-right: 1px solid #771722;
+    }
+
+    .sidenav {
+      width: 30%;
     }
 
     main {
