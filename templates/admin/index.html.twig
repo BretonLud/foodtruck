@@ -5,8 +5,17 @@
 {% block body %}
     <div><h1 class="text-center">Panneau d'Administration</h1></div>
     <div class="admin-button row">
-        <a href="{{ path('admin_utilisateurs') }}"><button class="myButton">Gestion des Utilisateurs</button> </a>
-        <a href="{{ path('admin_produits_index') }}"><button class="myButton2">Gestion des Produits</button></a>
-        <a href="{{ path('admin_option_index') }}"><button class="myButton">Gestion des Options produits</button></a>
+        <div class="btn-adm">
+            <a href="{{ path('admin_utilisateurs') }}"><button class="myButton">Gestion des Utilisateurs</button> </a>
+            <p class="tooltiptext">Pour gérer les utilisateurs : les supprimer ou modifier leur rôle</p>
+        </div>
+        <div class="btn-adm">
+            <a href="{{ path('admin_produits_index') }}"><button class="myButton2">Gestion des Produits</button></a>
+            <p class="tooltiptext">Pour gérer les produits : les créer, les supprimer, modifier leur prix, description ou image ainsi qu'en gérer la disponibilité</p>
+        </div>
+        <div class="btn-adm">
+            <a href="{{ path('admin_option_index') }}"><button class="myButton">Gestion des Options produits</button></a>
+            <p class="tooltiptext">Pour gérer les catégories produits : les créer, les supprimer ou modifier leur nom</p>
+        </div>
     </div>
 {% endblock %}

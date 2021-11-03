@@ -102,3 +102,41 @@
     justify-content: space-around;
     align-content: center;
 }
+
+
+.btn-adm{
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.btn-adm .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.658);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 1em;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 25%;
+    margin-left: -60px;
+}
+
+.btn-adm:hover .tooltiptext {
+    visibility: visible;
+}
+.btn-adm .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
