@@ -4,29 +4,46 @@
 
 {% block body %}
 
-    <div id="history" class="history">
-        {% for command in commandes %}
-        <div class="form form-history">
-            <div>
-                <div class="orders__order">
-                    <p class="col-1 commande-reference">N° {{ command.reference }}</p>
-                    <p class="col-1 text-right">{{ command.createdAt|date("m/d/Y, H:i") }}</p>
-                </div>
-                {% for produit in command.orderProduits %}
-                <div class="orders__order">
-                    <p class="col-1">{{ produit.produits.name }}</p>
-                    <p class="order-qty">{{ produit.quantity }} x </p>
-                    <p>{{ produit.produits.prix }} €</p>
-                </div>
-                {% endfor %}
-                <div class="orders__order order-total">
-                   <p>Total : {{ command.price }} €</p>
-                </div>
-            </div>
-        </div>
+    <div>
+    {% set orders = commandes %}
+    {% set countOrders = 0 %}
+    {% set orderLength = orders|length %}
 
-    <div class="navigation">
-        {{ knp_pagination_render(commandes,'profil/pagination.html.twig') }}
-    </div>
+    {% set countCommands = 0 %}
+
+
+        
+   
+            {% for commands in commandes %} 
+             {% if countOrders == countCommands %}    
+                <section class="section-commande">
+                {% set countCommands =  countCommands+4 %}
+            {% endif %}
+                <div id="history" class="history">                    
+                    <div class="form form-history">
+                        <div>
+                            <div class="orders__order">
+                                <p class="col-1 commande-reference">N° {{ commands.reference }}</p>
+                                <p class="col-1 text-right">{{ commands.createdAt|date("m/d/Y, H:i") }}</p>
+                            </div>
+                            {% for produit in commands.orderProduits %}
+                            <div class="orders__order">
+                                <p class="col-1">{{ produit.produits.name }}</p>
+                                <p class="order-qty">{{ produit.quantity }} x </p>
+                                <p>{{ produit.produits.prix }} €</p>
+                            </div>
+                            {% endfor %}
+                            <div class="orders__order order-total">
+                            <p>Total : {{ commands.price }} €</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% set countOrders = countOrders+1 %}
+                {% if countOrders == countCommands or orderLength == countOrders %}       
+                    </section>
+                {% endif %}                             
+            {% endfor %}
 {% endblock %}
+
 

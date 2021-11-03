@@ -41,7 +41,29 @@ a {
     text-align: right;
   }
 
+  .header-desktop {
+    position: fixed;
+    width: inherit;
+    z-index: 100;
+  }
 
+@media screen and (max-width: 960px) {
+    .header-burger{
+        position: fixed;
+      }
+
+      #menu-burger {
+        z-index: 999;
+
+      }
+    
+      #menu-burger.show-menu{
+        display: flex;
+        justify-self: right;
+        transform:translateY(75px);
+    }
+    
+}
 
 @media screen and(max-width: 1280px) {
 

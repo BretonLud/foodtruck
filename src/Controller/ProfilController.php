@@ -138,16 +138,16 @@ class ProfilController extends AbstractController
 
 
 
-            $pagination = $paginator->paginate(
+            /*$pagination = $paginator->paginate(
                 $orders,
                 $request->query->getInt('page', 1),
                 4
-            );
+            );*/
 
 
 
        return $this->render('profil/history.html.twig', [
-           'commandes' => $pagination
+           'commandes' => $orders/*$pagination*/
        ]);
     }
 

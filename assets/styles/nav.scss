@@ -1,5 +1,6 @@
 @import './variable.scss';
 
+
 .header-desktop nav {
     background-color: $mainColor;
     color: $secondarycolor;
@@ -20,7 +21,7 @@
 .header-burger{
     display: none;
     padding:0 12px;
-    position:relative;
+    position: relative;
     z-index:999;
     width:100%;
     max-width:960px;

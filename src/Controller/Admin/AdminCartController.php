@@ -64,13 +64,10 @@
         public function ordersWait(Request $request): Response
         {
 
-
             $orders = $this->orderRepository->findCommand();
-
 
             if($request->isMethod('POST')) {
                 $checks = $request->request->get('check');
-
 
                 if (!empty($checks)) {
 

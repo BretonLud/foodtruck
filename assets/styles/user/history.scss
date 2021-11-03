@@ -1,8 +1,30 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  scroll-snap-type: y proximity;
+}
+
+.section-commande {
+  padding: 1rem;
+  padding-top: 5em;
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .form-history {
-  margin: auto;
+  margin: 0 auto 20% auto;
+  max-height: 30vh;
 }
 .history {
-  height: 93%;
   display: flex;
   flex-wrap: wrap;
   row-gap: 2em;
@@ -29,4 +51,11 @@
 }
 .order-total {
   justify-content: right;
+}
+
+@media screen and (max-width: 960px) {
+  * {
+    box-sizing: content-box;
+  }
+  
 }
