@@ -6,10 +6,7 @@ namespace App\Controller;
 
 
 use App\Entity\Produits;
-
 use App\Repository\ProduitsRepository;
-
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
