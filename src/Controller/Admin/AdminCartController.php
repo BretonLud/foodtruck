@@ -78,6 +78,8 @@
                         $this->em->persist($order);
                     }
                         $this->em->flush();
+                    $orders = $this->orderRepository->findCommand();
+
                     return $this->render('/admin/cart/wait.html.twig', [
                         'orders' => $orders,
                     ]);
