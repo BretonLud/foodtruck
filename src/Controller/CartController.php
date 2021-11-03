@@ -62,7 +62,7 @@ class CartController extends AbstractController{
     public function ajaxRequest(SessionInterface $session, Request $request)
     {
         $datas = json_decode($request->getContent(), true);
-        $ressource = null;
+
 
 
         if(!empty($datas)) {

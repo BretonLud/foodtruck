@@ -49,6 +49,11 @@ class Order
      */
     private $created_at;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $checked = false;
+
 
 
     public function __construct()
@@ -136,6 +141,18 @@ class Order
     public function setCreatedAt(?\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getChecked(): ?bool
+    {
+        return $this->checked;
+    }
+
+    public function setChecked(?bool $checked): self
+    {
+        $this->checked = $checked;
 
         return $this;
     }

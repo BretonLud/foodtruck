@@ -57,7 +57,7 @@ Class AdminController extends AbstractController{
     {
         $form = $this->createForm(EditUserType::class, $user);
         $form->handleRequest($request);
-        $admin = $user->getRoles();
+
 
         if($form->isSubmitted() && $form->isValid()){
             $entityManager = $this->getDoctrine()->getManager();

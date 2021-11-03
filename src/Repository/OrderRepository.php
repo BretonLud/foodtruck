@@ -6,6 +6,7 @@ use App\Entity\Order;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 
@@ -32,6 +33,12 @@ class OrderRepository extends ServiceEntityRepository
         ],[
             'created_at' => 'DESC'
         ]);
+    }
+
+    public function findCommand(){
+        return $this->findVisibleQuery()
+            ->getQuery()
+            ->getResult();
     }
 
     // /**
@@ -62,4 +69,12 @@ class OrderRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    private function findVisibleQuery() : QueryBuilder
+    {
+
+        return $this->createQueryBuilder('o')
+            ->where('o.checked = false');
+
+    }
 }
