@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Commandes passées ' %}
+
+{% block body %}
+    <form action="#" method="post" name="form">
+        <div>
+            {% if orders %}
+                <div id="history" class="history">
+                    {% for order in orders %}
+                        <div class="form form-history">
+                            <div>
+                                <div class="orders__order">
+                                    <p class="col-1 commande-reference">N° {{ order.reference
+                                        }}</p>
+                                    <p class="col-1 text-right">{{ order.createdAt|date("m/d/Y, H:i") }}</p>
+                                </div>
+                                {% for produit in order.orderProduits %}
+                                    <div class="orders__order">
+                                        <p class="col-1">{{ produit.produits.name }}</p>
+                                        <p class="order-qty">{{ produit.quantity }} x </p>
+                                        <p>{{ produit.produits.prix }} €</p>
+                                    </div>
+
+                                {% endfor %}
+                                <div class="orders__order order-total">
+                                    <p>Total : {{ order.price }} €</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div>
+                    <p>Pas de commande faites</p>
+                </div>
+            {% endif %}
+        </div>
+    </form>
+{% endblock %}

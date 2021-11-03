@@ -3,7 +3,20 @@
 {% block title 'Commandes' %}
 
 {% block body %}
+    <div class="admin-button row">
+        <div class="btn-adm">
+            <a href="{{ path('admin_cart_wait') }}" class="myButton">Commande à faire</a>
+            <p class="tooltiptext">Commande passée et non traitée</p>
+        </div>
+        <div class="btn-adm">
+            <a href="{{ path('admin_cart_past') }}" class="myButton">Ancienne commande</a>
+            <p class="tooltiptext">Ancienne commande</p>
+        </div>
+        <div class="btn-adm">
+            <a href="{{ path('admin_index') }}" class="myButton">Retour</a>
+            <p class="tooltiptext">Retour page administration</p>
+        </div>
+    </div>
 
-    <a href="{{ path('admin_cart_wait') }}" class="myButton3">Commande à faire</a>
-    {#  <a href="{{ path('admin_cart_end') }}" class="myButton3">Commande faite</a> #}
+
 {% endblock %}

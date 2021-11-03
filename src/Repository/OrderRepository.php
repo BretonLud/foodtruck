@@ -35,8 +35,16 @@ class OrderRepository extends ServiceEntityRepository
         ]);
     }
 
-    public function findCommand(){
+    public function findCommand()
+    {
         return $this->findVisibleQuery()
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findPastComand()
+    {
+        return $this->findPastQuery()
             ->getQuery()
             ->getResult();
     }
@@ -76,5 +84,11 @@ class OrderRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('o')
             ->where('o.checked = false');
 
+    }
+
+    private function findPastQuery() : QueryBuilder
+    {
+        return $this->createQueryBuilder('o')
+            ->where('o.checked = true');
     }
 }
