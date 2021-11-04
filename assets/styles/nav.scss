@@ -100,8 +100,9 @@
     color: $secondarycolor;
   }
   #menu-burger.show-menu{
-      display: flex;
-      justify-self: right;
+    z-index: 999;
+    display: flex;
+    justify-self: right;
     transform:translateY(0px);
   }
 

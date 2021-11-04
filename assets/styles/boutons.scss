@@ -106,8 +106,9 @@
 
 .btn-adm{
     position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
+    display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .btn-adm .tooltiptext {
@@ -123,8 +124,6 @@
     position: absolute;
     z-index: 1;
     bottom: 150%;
-    left: 25%;
-    margin-left: -60px;
 }
 
 .btn-adm:hover .tooltiptext {
@@ -135,7 +134,6 @@
     position: absolute;
     top: 100%; /* At the bottom of the tooltip */
     left: 50%;
-    margin-left: -5px;
     border-width: 5px;
     border-style: solid;
     border-color: black transparent transparent transparent;

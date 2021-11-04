@@ -10,11 +10,19 @@
 @import './success.scss';
 @import './error.scss';
 @import './user/history.scss';
+@import './waiting-cart.scss';
 
 
 *{
     margin: 0;
     padding: 0;
+  /*hide scrollbar*/
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  }
+  
+  ::-webkit-scrollbar {
+  display: none; /*chrome safari opera*/
   }
 
 body{

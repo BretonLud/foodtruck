@@ -40,6 +40,12 @@ export default function Basket(props) {
         })
       }
 
+     const stockSession = () =>{
+        sessionStorage.setItem('panier',JSON.stringify(cartItems))
+      }
+
+      console.log(sessionStorage)
+
       const bouttonpaiement = <StripeCheckout 
               stripeKey="pk_test_51JjKjDCNkH9r21wgmurnRnbIkLFboSYR2wk4erBWcx6RX5TfxjnbjgJ76EdfD4U4MTHCYiX5MJTMwBtfoaq3q3p6001HiVFnNR"
               token={submit}
@@ -54,60 +60,58 @@ export default function Basket(props) {
               
     const bouttonconnecter = <div>
         <p>Veuillez vous connecter pour commander</p>
-        <a href="/login"><button className="btn">Se connecter</button></a>
+        <a href="/login"><button onClick={stockSession} className="btn">Se connecter</button></a>
         </div>
+
+    
+/*let panierSession = JSON.parse(sessionStorage.getItem('panier'))
+    sessionStorage.length != 0 ? console.log(panierSession) : ""
+
+sessionStorage.length != 0 ? cartItems.push(panierSession) : ""
+
+console.log(JSON.stringify(cartItems))*/
+
 
       
 
     return <aside id="panier" className="block col-1">
         <Header countCartItems={cartItems.length}/>
-        <div>{cartItems.length === 0 && <div>Le panier est vide</div>}</div>
-        {cartItems.map((item) => (
-            <form key={item.name} className="row" action="" method="post">
-            <div key={item.id} className="width">
-                
-                    <div className="itemName">
-                    <input type="hidden" name="ProductName" id="ProductName" value={item.name} readOnly={true}/>
-                    <input type="hidden" name="ProductQuantity" id="ProductQuantity" value={item.qty} readOnly={true}/>
-                    <input type="hidden" name="ProductPrice" id="ProductPrice" value={item.price.toFixed(2)} readOnly={true}/>
-                    </div>
-                <div className="col-4">
-                    <div className="row space-between">
-                        <p className="produitpanier">{item.name}</p>
-                        <p>{item.qty} x {item.price.toFixed(2)} €</p>
-                    </div>
-                </div>
-                <div className="row">
+        {loggedIn ?<div>{cartItems.length === 0 && <div>Le panier est vide</div>}</div> : <div>{bouttonconnecter}</div> }
+            {cartItems.map((item) => (
+                <form key={item.name} className="row" action="" method="post">
+                <div key={item.id} className="width">
+                    
+                        <div className="itemName">
+                        <input type="hidden" name="ProductName" id="ProductName" value={item.name} readOnly={true}/>
+                        <input type="hidden" name="ProductQuantity" id="ProductQuantity" value={item.qty} readOnly={true}/>
+                        <input type="hidden" name="ProductPrice" id="ProductPrice" value={item.price.toFixed(2)} readOnly={true}/>
+                        </div>
                     <div className="col-4">
-                        <button type="button" onClick={() => onRemove(item)} className="btn remove">-</button>
-                        <button type="button" onClick={() => onAdd(item)} className="btn add">+</button>
+                        <div className="row space-between">
+                            <p className="produitpanier">{item.name}</p>
+                            <p>{item.qty} x {item.price} €</p>
+                        </div>
+                        
+                    </div>
+                    <div className="row">
+                        <div className="col-4">
+                            <button type="button" onClick={() => onRemove(item)} className="btn remove">-</button>
+                            <button type="button" onClick={() => onAdd(item)} className="btn add">+</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            </form>
-        ))}
-        {cartItems.length !== 0 && (
-            <>
-                <hr />
-                {/*<div className="row">
-                    <div className="col-2">Items Price</div>
-                    <div className="col-1 text-right">€{itemsPrice.toFixed(2)}</div>
-                </div>
-                <div className="row">
-                    <div className="col-2">Tax Price</div>
-                    <div className="col-1 text-right">€{taxPrice.toFixed(2)}</div>
-                </div>
-                <div className="row">
-                    <div className="col-2">Shipping Price</div>
-                    <div className="col-1 text-right">€{shippingPrice.toFixed(2)}</div>
-                </div>*/}
-                <div className="row">
-                    <div className="col-4"><strong>Prix Total</strong></div>
-                    <div className="col-1 text-right"><strong>€{totalPrice.toFixed(2)}</strong></div>
-                </div>
-                <hr />
-                {loggedIn ? bouttonpaiement : bouttonconnecter}
-            </>
-        )}
+                </form>
+            ))}
+            {cartItems.length !== 0 && (
+                <>
+                    <hr />
+                    <div className="row">
+                        <div className="col-4"><strong>Prix Total</strong></div>
+                        <div className="col-1 text-right"><strong>€{totalPrice.toFixed(2)}</strong></div>
+                    </div>
+                    <hr />
+                    {loggedIn ? bouttonpaiement : bouttonconnecter}
+                </>
+            )}
     </aside>
 }

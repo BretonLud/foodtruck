@@ -4,7 +4,7 @@
 
 {% block body %}
     <form action="#" method="post" name="form">
-        <div>
+        <div class="waiting-cart">
             {% if orders %}
             <div id="history" class="history">
                 {% for order in orders %}
@@ -26,13 +26,13 @@
                             <div class="orders__order order-total">
                                 <p>Total : {{ order.price }} €</p>
                             </div>
-                            <label for="check">Commande traité</label>
+                            <label for="check">Commande traitée</label>
                             <input type="checkbox" id="check" name="check[]" value="{{ order.reference}}">
                         </div>
                     </div>
                 {% endfor %}
             </div>
-            <button type="submit">Valider</button>
+            <button class="myButton3" type="submit">Valider</button>
             {% else %}
 
             <div>
