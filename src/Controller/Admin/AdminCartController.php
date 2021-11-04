@@ -90,4 +90,17 @@
                 'orders' => $orders
             ]);
         }
+
+        /**
+         * @return Response
+         * @Route("/past", name="cart_past")
+         */
+        public function odersPast()
+        {
+            $orders = $this->orderRepository->findPastComand();
+
+            return $this->render('/admin/cart/past.html.twig', [
+                'orders' => $orders
+            ]);
+        }
     }

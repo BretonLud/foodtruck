@@ -4,28 +4,38 @@
 
 {% block body %}
     <form action="#" method="post" name="form">
+<<<<<<< HEAD
         <div class="waiting-cart">
-            {% if orders %}
-            <div id="history" class="history">
-                {% for order in orders %}
-                    <div class="form form-history">
-                        <div>
-                            <div class="orders__order">
-                                <p class="col-1 commande-reference">N° {{ order.reference
-                                        }}</p>
-                                <p class="col-1 text-right">{{ order.createdAt|date("m/d/Y, H:i") }}</p>
-                            </div>
-                            {% for produit in order.orderProduits %}
-                                <div class="orders__order">
-                                    <p class="col-1">{{ produit.produits.name }}</p>
-                                    <p class="order-qty">{{ produit.quantity }} x </p>
-                                    <p>{{ produit.produits.prix }} €</p>
-                                </div>
+=======
 
-                            {% endfor %}
-                            <div class="orders__order order-total">
-                                <p>Total : {{ order.price }} €</p>
+>>>>>>> fec6cdd046fa372fcfa72257f52c19b85a90aaa9
+            {% if orders %}
+                <div>
+                    <div id="history" class="history">
+                        {% for order in orders %}
+                            <div class="form form-history">
+                                <div>
+                                    <div class="orders__order">
+                                        <p class="col-1 commande-reference">N° {{ order.reference
+                                                }}</p>
+                                        <p class="col-1 text-right">{{ order.createdAt|date("m/d/Y, H:i") }}</p>
+                                    </div>
+                                    {% for produit in order.orderProduits %}
+                                        <div class="orders__order">
+                                            <p class="col-1">{{ produit.produits.name }}</p>
+                                            <p class="order-qty">{{ produit.quantity }} x </p>
+                                            <p>{{ produit.produits.prix }} €</p>
+                                        </div>
+
+                                    {% endfor %}
+                                    <div class="orders__order order-total">
+                                        <p>Total : {{ order.price }} €</p>
+                                    </div>
+                                    <label for="check">Commande traité</label>
+                                    <input type="checkbox" id="check" name="check[]" value="{{ order.reference}}">
+                                </div>
                             </div>
+<<<<<<< HEAD
                             <label for="check">Commande traitée</label>
                             <input type="checkbox" id="check" name="check[]" value="{{ order.reference}}">
                         </div>
@@ -33,12 +43,21 @@
                 {% endfor %}
             </div>
             <button class="myButton3" type="submit">Valider</button>
+=======
+                        {% endfor %}
+                    </div>
+                    <button type="submit" class="myButton3">Valider</button>
+                    <a href="{{ path('admin_cart_index') }}">Retour</a>
+                </div>
+>>>>>>> fec6cdd046fa372fcfa72257f52c19b85a90aaa9
             {% else %}
 
-            <div>
+            <div class="form center">
                 <p>Pas de commande en cours</p>
+                <a href="{{ path('admin_cart_index') }}" class="myButton3">Retour</a>
             </div>
+
             {% endif %}
-        </div>
+
     </form>
 {% endblock %}
