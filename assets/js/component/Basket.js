@@ -54,17 +54,8 @@ export default function Basket(props) {
               
     const bouttonconnecter = <div>
         <p>Veuillez vous connecter pour commander</p>
-        <a href="/login"><button onClick={stockSession} className="btn">Se connecter</button></a>
+        <a href="/login"><button className="btn">Se connecter</button></a>
         </div>
-
-    
-/*let panierSession = JSON.parse(sessionStorage.getItem('panier'))
-    sessionStorage.length != 0 ? console.log(panierSession) : ""
-
-sessionStorage.length != 0 ? cartItems.push(panierSession) : ""
-
-console.log(JSON.stringify(cartItems))*/
-
 
       
 
