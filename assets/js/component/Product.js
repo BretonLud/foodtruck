@@ -22,7 +22,7 @@ export default function Product(props) {
                             <h3>{product.name}</h3>
                             <div>{product.price} €</div>
                             <div>
-                                <button className="btn btn-product" onClick={() => onAdd(product)}>Ajouter au panier</button>
+                                {loggedIn ? <button className="btn btn-product" onClick={() => onAdd(product)}>Ajouter au panier</button> : "" }
                             </div>
                         </div> 
                             }}

@@ -15,7 +15,7 @@ const Modal = ({ isShowing, hide, product, onAdd }) => isShowing ? ReactDOM.crea
           <p>
           {product.description}
           </p>
-          <button className="btn btn-product-modal" onClick={() => onAdd(product)}>Ajouter au panier</button>
+          {loggedIn ? <button className="btn btn-product-modal" onClick={() => onAdd(product)}>Ajouter au panier</button> : ""}
       </div>
     </div>
   </>, document.body
