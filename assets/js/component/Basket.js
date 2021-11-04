@@ -15,6 +15,7 @@ export default function Basket(props) {
     const totalPrice = itemsPrice// + taxPrice + shippingPrice
 
 
+    /** Requête Ajaw paiement**/
     const submit = (token) => {
         axios({
           method: 'POST',
@@ -40,6 +41,7 @@ export default function Basket(props) {
         })
       }
 
+      /** Bouton paiement**/
       const bouttonpaiement = <StripeCheckout 
               stripeKey="pk_test_51JjKjDCNkH9r21wgmurnRnbIkLFboSYR2wk4erBWcx6RX5TfxjnbjgJ76EdfD4U4MTHCYiX5MJTMwBtfoaq3q3p6001HiVFnNR"
               token={submit}
@@ -61,7 +63,7 @@ export default function Basket(props) {
 
     return <aside id="panier" className="block col-1">
         <Header countCartItems={cartItems.length}/>
-        {loggedIn ?<div>{cartItems.length === 0 && <div>Le panier est vide</div>}</div> : <div>{bouttonconnecter}</div> }
+        {loggedIn ?<div>{cartItems.length === 0 && <div>Le panier est vide</div>}</div> : <div>{bouttonconnecter}</div> } {/* si panier vide */}
             {cartItems.map((item) => (
                 <form key={item.name} className="row" action="" method="post">
                 <div key={item.id} className="width">

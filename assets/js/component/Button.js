@@ -1,5 +1,6 @@
 import React from 'react';
 
+/** Bouton catégorie **/
 function Button({button, filter}) {
     return ( 
         <div className="buttons">

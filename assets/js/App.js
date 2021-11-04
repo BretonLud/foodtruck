@@ -7,8 +7,8 @@ import Basket from './component/Basket';
 import Button from './component/Button';
 
 function App(props) {
-  const {itemOptions, loggedIn, sessionMail} = props
-  const stock = itemOptions.stock
+  const {itemOptions, loggedIn, sessionMail} = props //Récupère kes produits de la BdD, Si l'utilisateur est connecté et son mail s'il l'est
+  const stock = itemOptions.stock //Récupère si les produits sont en stock
   const products = itemOptions
   const [cartItems, setCartItems] = useState([])
   const onAdd = (product) => {
@@ -29,32 +29,29 @@ function App(props) {
     }
   }
 
-// filtre 
 
-
-let cat = [...new Set(products.map(product => product.category))]
+  /** Filtre **/
+let cat = [...new Set(products.map(product => product.category))] //Suppression des doublons si plusieurs produits on la même catégorie
 let tab = []
 
 cat.forEach(category => tab.push(...category))
 const categories = ['Tout', ...new Set(tab)]
 
-const allCategories = categories.filter(categories => categories !== undefined)
+const allCategories = categories.filter(categories => categories !== undefined) //Ne pas afficher de bouton vide en cas de catégorie non définie lorsque les produit n'ont qu'une catégorie
 
 const [menuItem, setMenuItem] = useState(products);
-
-
 
 const [buttons] = useState(allCategories);
 
 
     const filter = (button) => {
-
+        /** Bouton 'tout' affiche tous les produits **/
         if (button === 'Tout') {
             setMenuItem(products)
             return
         } 
 
-
+        /** Le bouton filtre les produits correspondant au bouton**/
         const filter1 = products.filter(function(product) {
           if (product.category.includes(button)) {
             return true
