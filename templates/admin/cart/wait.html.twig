@@ -4,11 +4,6 @@
 
 {% block body %}
     <form action="#" method="post" name="form">
-<<<<<<< HEAD
-        <div class="waiting-cart">
-=======
-
->>>>>>> fec6cdd046fa372fcfa72257f52c19b85a90aaa9
             {% if orders %}
                 <div>
                     <div id="history" class="history">
@@ -35,21 +30,11 @@
                                     <input type="checkbox" id="check" name="check[]" value="{{ order.reference}}">
                                 </div>
                             </div>
-<<<<<<< HEAD
-                            <label for="check">Commande traitée</label>
-                            <input type="checkbox" id="check" name="check[]" value="{{ order.reference}}">
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-            <button class="myButton3" type="submit">Valider</button>
-=======
                         {% endfor %}
                     </div>
                     <button type="submit" class="myButton3">Valider</button>
                     <a href="{{ path('admin_cart_index') }}">Retour</a>
                 </div>
->>>>>>> fec6cdd046fa372fcfa72257f52c19b85a90aaa9
             {% else %}
 
             <div class="form center">

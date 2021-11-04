@@ -40,12 +40,6 @@ export default function Basket(props) {
         })
       }
 
-     const stockSession = () =>{
-        sessionStorage.setItem('panier',JSON.stringify(cartItems))
-      }
-
-      console.log(sessionStorage)
-
       const bouttonpaiement = <StripeCheckout 
               stripeKey="pk_test_51JjKjDCNkH9r21wgmurnRnbIkLFboSYR2wk4erBWcx6RX5TfxjnbjgJ76EdfD4U4MTHCYiX5MJTMwBtfoaq3q3p6001HiVFnNR"
               token={submit}
