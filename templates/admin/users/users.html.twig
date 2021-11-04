@@ -4,6 +4,11 @@
 
 {% block body %}
     <h1>Liste des utilisateurs</h1>
+    {% for message in app.flashes('message') %}
+        <div class="col-2">
+            <div class="success">{{ message }}</div>
+        </div>
+    {% endfor %}
     <table>
         <thead>
             <th>ID</th>
@@ -32,6 +37,12 @@
                     </td>
                     <td class="modifier">
                         <a href="{{ path('admin_modifier_utilisateurs', {id: user.id}) }}"> <button class="myButton3">Modifier</button> </a>
+                        <form method="POST" action="{{ path('admin_supprimer_utilisateurs', {id: user.id}) }}"
+                        style="display: inline-block" onsubmit="return confirm('Êtes vous vraiment sûr ?')">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+                            <button class="myButton3">Supprimer</button>
+                        </form>
                     </td>
                 </tr>
             {% else %}

@@ -6,8 +6,11 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use App\Form\EditUserType;
 use App\Repository\UserRepository;
+
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -20,10 +23,15 @@ Class AdminController extends AbstractController{
      */
     private $userRepository;
 
-    public function __construct(UserRepository $userRepository){
+    /**
+     * @var EntityManagerInterface
+     */
+    private $em;
+
+    public function __construct(UserRepository $userRepository, EntityManagerInterface $em){
 
         $this->userRepository = $userRepository;
-
+        $this->em = $em;
     }
 
     /**
@@ -73,8 +81,25 @@ Class AdminController extends AbstractController{
         ]);
     }
 
-    public function deleteUser()
+    /**
+     * @param User $user
+     * @param Request $request
+     * @return Response
+     * @Route("/utilisateurs/delete/{id}", name="supprimer_utilisateurs")
+     */
+    public function delete(User $user, Request $request): Response
     {
 
+
+        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->get('_token'))){
+
+            $this->em->remove($user);
+            $this->em->flush();
+            $this->addFlash('success', 'Utilisateurs supprimé avec succès');
+
+        }
+
+        //return new Response('Suppression');
+        return $this->redirectToRoute('admin_utilisateurs');
     }
 }
