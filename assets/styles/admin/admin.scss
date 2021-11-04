@@ -1,0 +1,68 @@
+.admin{
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 960px){
+    height: auto;
+  }
+}
+
+.admin h1{
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.admin__box{
+  width: 80%;
+  border: black solid 4px;
+  padding: 2em;
+
+  @media screen and (max-width: 960px){
+    width: 100%;
+    border: none;
+  }
+}
+
+.admin-button {
+
+  justify-content: space-around;
+  align-content: center;
+  margin: 4em 0;
+
+  @media screen and (max-width: 960px){
+    height: 70vh;
+  }
+}
+
+.admin .row {
+  flex-direction: column;
+}
+
+.admin__champs{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  @media screen and (max-width: 960px){
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+  }
+}
+
+.admin__champs:nth-child(2){
+  margin-top: 6em;
+  @media screen and (max-width: 960px){
+    margin-top: 0;
+  }
+}
+
+.admin__champs .myButton {
+  width: 300px;
+}
+
+@media screen and (max-width: 960px){
+
+}

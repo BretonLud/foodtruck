@@ -72,4 +72,9 @@ Class AdminController extends AbstractController{
             'userForm' => $form->createView()
         ]);
     }
+
+    public function deleteUser()
+    {
+
+    }
 }
