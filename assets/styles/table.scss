@@ -5,14 +5,17 @@ table {
 	width:100%;
 	border:1px solid $thirdcolor;
     border-collapse: collapse;
+	margin-bottom: 6%;
 }
 th {
 	background:$thirdcolor;
     color: $secondarycolor;
+	padding: 0.5em;
 	
 }
 td {
 	border:1px solid $thirdcolor;
+	padding: 0.5em;
 
 }
 tr {

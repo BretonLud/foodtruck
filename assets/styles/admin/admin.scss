@@ -30,6 +30,7 @@
   justify-content: space-around;
   align-content: center;
   margin: 4em 0;
+  text-align: center;
 
   @media screen and (max-width: 960px){
     height: 70vh;
@@ -61,8 +62,5 @@
 
 .admin__champs .myButton {
   width: 300px;
-}
-
-@media screen and (max-width: 960px){
-
+  padding: 1em;
 }

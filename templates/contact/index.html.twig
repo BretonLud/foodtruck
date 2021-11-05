@@ -3,30 +3,38 @@
 {% block title 'Contact' %}
 
 {% block body %}
-    <div class="form">
+    <div class="contact">
         {% for message in app.flashes('success') %}
             <div class="success">
                 {{ message }}
             </div>
         {% endfor %}
-        {{ form_start(form) }}
-        <div class="row">
-            <div class="col-2 contact-fn">
-                {{ form_row(form.firstname) }}
+        <div class="form">
+            <div class="contact__img">
+                <img src="{{ asset("/build/images/contact.webp") }}" alt="image burger contact">
             </div>
-            <div class="col-2">
-                {{ form_row(form.lastname) }}
+            <div class="contact__form">
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-2 contact-fn">
+                        {{ form_row(form.firstname) }}
+                    </div>
+                    <div class="col-2">
+                        {{ form_row(form.lastname) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        {{ form_row(form.email) }}
+                    </div>
+                </div>
+                {{ form_rest(form) }}
+                <div class="form-group">
+                    <button class="myButton3">Envoyer</button>
+                </div>
+                {{ form_end(form) }}
             </div>
         </div>
-        <div class="row">
-            <div class="col-4">
-                {{ form_row(form.email) }}
-            </div>
-        </div>
-        {{ form_rest(form) }}
-        <div class="form-group">
-            <button class="myButton3">Envoyer</button>
-        </div>
-        {{ form_end(form) }}
     </div>
+
 {% endblock %}

@@ -3,20 +3,29 @@
 {% block title 'Commandes' %}
 
 {% block body %}
-    <div class="admin-button row">
-        <div class="btn-adm">
-            <a href="{{ path('admin_cart_wait') }}" class="myButton">Commande à faire</a>
-            <p class="tooltiptext">Commande passée et non traitée</p>
-        </div>
-        <div class="btn-adm">
-            <a href="{{ path('admin_cart_past') }}" class="myButton">Ancienne commande</a>
-            <p class="tooltiptext">Ancienne commande</p>
-        </div>
-        <div class="btn-adm">
-            <a href="{{ path('admin_index') }}" class="myButton">Retour</a>
-            <p class="tooltiptext">Retour page administration</p>
+    <div class="admin">
+        <div class="admin__box">
+            <div><h1 class="text-center">Gestions des commandes</h1></div>
+            <div class="admin-button row">
+                <div class="admin__champs">
+                    <div class="btn-adm">
+                        <a href="{{ path('admin_cart_wait') }}"><button class="myButton">Gestion des Utilisateurs</button> </a>
+                        <p class="tooltiptext">Commande passée et non traitée</p>
+                    </div>
+
+                    <div class="btn-adm">
+                        <a href="{{ path('admin_cart_past') }}"><button class="myButton">Gestion des Produits</button></a>
+                        <p class="tooltiptext">Ancienne commande</p>
+                    </div>
+                </div>
+                <div class="admin__champs">
+                    <div class="btn-adm">
+                        <a href="{{ path('admin_index') }}" class="myButton">Retour</a>
+                        <p class="tooltiptext">Pour gérer les catégories produits : les créer, les supprimer ou modifier leur nom</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 
 {% endblock %}

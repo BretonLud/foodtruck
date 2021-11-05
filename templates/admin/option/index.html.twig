@@ -33,12 +33,22 @@
                 </tr>
                 {% endfor %}
             </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="2">
+                    <div class="text-right">
+                        <a href="{{ path('admin_option_new') }}" class="btn btn-primary"><button class="myButton2">Créer une nouvelle option</button></a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div>
+                        <a href="{{ path('admin_index') }}"><button class="myButton3">Retour</button></a>
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
         </table>
-        <div class="text-right">
-            <a href="{{ path('admin_option_new') }}" class="btn btn-primary"><button class="myButton2">Créer une nouvelle option</button></a>
-        </div>
-        <div>
-            <a href="{{ path('admin_index') }}"><button class="myButton3">Retour</button></a>
-        </div>
     </div>
 {% endblock %}

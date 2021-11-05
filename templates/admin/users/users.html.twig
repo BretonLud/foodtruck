@@ -3,18 +3,26 @@
 {% block title %}Liste des utilisateurs{% endblock %}
 
 {% block body %}
-    <h1>Liste des utilisateurs</h1>
-    {% for message in app.flashes('message') %}
+
+    {% for message in app.flashes('success') %}
         <div class="col-2">
             <div class="success">{{ message }}</div>
         </div>
     {% endfor %}
     <table>
+
         <thead>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Rôles</th>
-            <th>Action</th>
+        <tr>
+            <td colspan="4">
+                <h1>Liste des utilisateurs :</h1>
+            </td>
+        </tr>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Rôles</th>
+                <th>Action</th>
+            </tr>
         </thead>
         <tbody>
             {# on boucle les utilisateurs #}
@@ -45,13 +53,14 @@
                         </form>
                     </td>
                 </tr>
-            {% else %}
-                <tr>
-                    <td>Il n'y a pas d'utilisateurs d'inscrit</td>
-                </tr>
             {% endfor %}
         </tbody>
+        <tfoot>
+            <td colspan="4">
+                <a href="{{ path('admin_index') }}"><button class="myButton3">Retour</button></a>
+            </td>
+        </tfoot>
     </table>
-    <a href="{{ path('admin_index') }}"><button class="myButton3">Retour</button></a>
+
 
 {% endblock %}
