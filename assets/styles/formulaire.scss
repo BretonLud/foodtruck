@@ -26,7 +26,15 @@
   .form-error{
     text-align: center;
     width: 100%;
+    margin: 0.5em 0;
     background-color: $thirdcolor;
+    color: $secondarycolor;
+    padding: 0.5em;
+    border-radius: 0.5em;
+  }
+
+  .form-error ul {
+    list-style: none;
   }
 
   .form h1 {

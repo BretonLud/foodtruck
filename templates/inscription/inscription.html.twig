@@ -3,25 +3,38 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <form class="form" method="post">
-        {{ form_start(registrationForm) }}
-                <h1>Inscription</h1>
-                <div class="form-error">{{ form_errors(registrationForm.email)}}</div>
-                {{ form_label(registrationForm.email) }}
-                {{ form_widget(registrationForm.email) }}
-                <div class="form-error">{{ form_errors(registrationForm.plainPassword.first)}}</div>
-                {{ form_label(registrationForm.plainPassword.first) }}
-                {{ form_widget(registrationForm.plainPassword.first) }}
-                {{ form_label(registrationForm.plainPassword.second) }}
-                {{ form_widget(registrationForm.plainPassword.second) }}
-                <fieldset class="sweet-candy">
-                        {{ form_row(registrationForm.Postal_code)}}
-                </fieldset>
-                <fieldset class="sweet-candy">
-                        {{ form_row(registrationForm.Address)}}
-                </fieldset>
-                <button type="submit" class="myButton">Register</button>
-        
-        {{ form_end(registrationForm) }}
-    </form>
+    <div class="inscription">
+        <form class="form" method="post">
+            <div class="inscription__img">
+                <img src="{{ asset('build/images/inscription.jpg') }}" alt="img inscription">
+            </div>
+            <div class="inscription__form">
+            {{ form_start(registrationForm) }}
+            <h1>Inscription</h1>
+                {% if form_errors(registrationForm.email) %}
+                    <div class="form-error">{{ form_errors(registrationForm.email) }}</div>
+                {% endif %}
+            {{ form_label(registrationForm.email) }}
+            {{ form_widget(registrationForm.email) }}
+                {% if form_errors(registrationForm.plainPassword.first) %}
+                    <div class="form-error">{{ form_errors(registrationForm.plainPassword.first)}}</div>
+                {% endif %}
+
+            {{ form_label(registrationForm.plainPassword.first) }}
+            {{ form_widget(registrationForm.plainPassword.first) }}
+            {{ form_label(registrationForm.plainPassword.second) }}
+            {{ form_widget(registrationForm.plainPassword.second) }}
+            <fieldset class="sweet-candy">
+                {{ form_row(registrationForm.Postal_code)}}
+            </fieldset>
+            <fieldset class="sweet-candy">
+                {{ form_row(registrationForm.Address)}}
+            </fieldset>
+            <button type="submit" class="myButton">Register</button>
+
+            {{ form_end(registrationForm) }}
+            </div>
+        </form>
+
+    </div>
 {% endblock %}
