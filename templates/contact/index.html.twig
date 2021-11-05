@@ -4,37 +4,38 @@
 
 {% block body %}
     <div class="contact">
-        {% for message in app.flashes('success') %}
-            <div class="success">
-                {{ message }}
-            </div>
-        {% endfor %}
         <div class="form">
-            <div class="contact__img">
-                <img src="{{ asset("/build/images/contact.webp") }}" alt="image burger contact">
-            </div>
-            <div class="contact__form">
-                {{ form_start(form) }}
-                <div class="row">
-                    <div class="col-2 contact-fn">
-                        {{ form_row(form.firstname) }}
-                    </div>
-                    <div class="col-2">
-                        {{ form_row(form.lastname) }}
-                    </div>
+            {% for message in app.flashes('success') %}
+                <div class="success">
+                    {{ message }}
                 </div>
-                <div class="row">
-                    <div class="col-4">
-                        {{ form_row(form.email) }}
+            {% endfor %}
+            <div class="contact--flex">
+                <div class="contact__img">
+                    <img src="{{ asset("/build/images/contact.webp") }}" alt="image burger contact">
+                </div>
+                <div class="contact__form">
+                    {{ form_start(form) }}
+                    <div class="row">
+                        <div class="col-2 contact-fn">
+                            {{ form_row(form.firstname) }}
+                        </div>
+                        <div class="col-2">
+                            {{ form_row(form.lastname) }}
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col-4">
+                            {{ form_row(form.email) }}
+                        </div>
+                    </div>
+                    {{ form_rest(form) }}
+                    <div class="form-group">
+                        <button class="myButton3">Envoyer</button>
+                    </div>
+                    {{ form_end(form) }}
                 </div>
-                {{ form_rest(form) }}
-                <div class="form-group">
-                    <button class="myButton3">Envoyer</button>
-                </div>
-                {{ form_end(form) }}
             </div>
         </div>
     </div>
-
 {% endblock %}
