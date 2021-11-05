@@ -1,6 +1,7 @@
 import React from "react";
 import panier from '../img/panier.png';
 
+/** Panier avec nombre de ligne produit affiché **/
 export default function Header(props) {
     const {countCartItems} = props
     return (

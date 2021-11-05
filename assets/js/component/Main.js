@@ -1,6 +1,7 @@
 import React from "react";
 import Product from "./Product";
 
+/** Affichage fenêtre principal avec liste produit**/
 export default function Main(props) {
 const {onAdd, menuItem, products} = props
 
