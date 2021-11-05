@@ -55,10 +55,13 @@
   }
 
   .app{
-    margin-top: 1em;
+    background: url('./images/headerburger.jpg');
+    background-size: 1280px 350px;
+    height: 350px;
     display: flex;
     margin-bottom: 1em;
     justify-content: space-between;
+    height: 350px;
   }
 
   .app img {
@@ -85,7 +88,11 @@
   .app-presentation {
     height: auto;
     text-align: center;
-    font-size: 5em;
+    font-size: 4em;
+    width: 500px;
+    color: white;
+    margin-top: 1em;
+    margin-right: 1em;
 
   }
   

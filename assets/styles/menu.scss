@@ -130,6 +130,10 @@ h1, h2, h3 {
     border-radius: 0.5rem;
   }
 
+  main {
+    min-height: 80vh;
+  }
+
   .panier {
     background-color: $mainColor;
   }

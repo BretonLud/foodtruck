@@ -4,7 +4,15 @@
 
 {% block body %}
         <div class="app">
-            <img src="{{ asset("/build/images/foodtruck.jpg") }}" alt="img foodtruck">
+            <div></div>
+                <div class="app-presentation">
+                    <p>
+                        Bienvenue sur le FoodBus DAQ de Luxeuil
+                    </p>
+                </div>
+        </div>
+
+        <div>
             {% if app.user%}
                 <div class="app__user">
                     <p>
@@ -29,11 +37,11 @@
             {% endif %}
         </div>
 
-    <div class="app-presentation">
+    <!--<div class="app-presentation">
         <p>
             Bienvenue sur le FoodBus DAQ de Luxeuil
         </p>
-    </div>
+    </div>!-->
 
     <div class="container">
         <h2>Nos nouveautés</h2>
