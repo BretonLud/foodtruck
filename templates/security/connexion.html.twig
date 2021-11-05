@@ -3,37 +3,36 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<div class="form-container">
+<div class="loginForm">
     <form class="form" method="post">
         {% if error %}
             <div class="form-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
-
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        <div class="loginForm--flex">
+            <div class="loginForm__img">
+                <img src="{{ asset('build/images/connexion.jpg') }}" alt="img connexion">
             </div>
-        {% endif %}
+            <div class="loginForm__form">
+                <h1>Se connecter</h1>
+                <label for="inputEmail">Email :</label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required>
+                <label for="inputPassword">Mot de passe :</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
-        <h1>Se connecter</h1>
-        <label for="inputEmail">Email:</label>
-        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required>
-        <label for="inputPassword">Password:</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-        <input type="hidden" name="_csrf_token"
-            value="{{ csrf_token('authenticate') }}"
-        >
-        <button class="myButton" type="submit">
-            Sign in
-        </button>
-            <a href="{{ path('app_forgot_password_request')}}" class="myButton" >
-            Mot de passe oublié</a>
-         
-        </form>
-       
-         
+                <input type="hidden" name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}"
+                >
+                <button class="myButton" type="submit">
+                    Connexion
+                </button>
+                <a href="{{ path('app_forgot_password_request')}}" class="myButton" >
+                    Mot de passe oublié
+                </a>
+           </div>
+        </div>
     </form>
-    
 </div>
+
+
+
 {% endblock %}
