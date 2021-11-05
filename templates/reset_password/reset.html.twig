@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau mot de passe{% endblock %}
+
+{% block body %}
+    
+
+    {{ form_start(resetForm, {"attr" : {"class":"form"}}) }}
+    <h1>Mot de pass oublier</h1>
+        {{ form_row(resetForm.plainPassword) }}
+        <button class="myButton">Envoyer</button>
+    {{ form_end(resetForm) }}
+{% endblock %}
