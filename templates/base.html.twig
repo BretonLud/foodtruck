@@ -34,8 +34,17 @@
                             <a href="{{ path('admin_produits_index') }}" class="lien">Modération</a>
                         </li>
                         {% endif %}
+                    {% endif %}
+                        {% if is_granted('ROLE_USER') %}
                         <li>
                             <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="{{ path('app_inscription') }}">S'inscrire</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_login') }}">Se connecter</a>
                         </li>
                     {% endif %}
                     </ul>
@@ -52,13 +61,18 @@
                 <li><a href="{{ path('contact_index') }}" id="4" class="lien">Contact</a></li>
                 {% if is_granted('ROLE_USER') %}
                 <li><a href="{{ path('profil_index') }}" class="lien">Mon compte</a></li>
-                 {% if is_granted('ROLE_ADMIN') %}
+                    {% if is_granted('ROLE_ADMIN') %}
                 <li><a href="{{ path('admin_index') }}" class="lien">Administration</a></li>
-                {% endif %}
-                {% if is_granted('ROLE_MODO') %}
+                    {% endif %}
+                    {% if is_granted('ROLE_MODO') %}
                 <li><a href="{{ path('admin_produits_index') }}" class="lien">Modération</a></li>
+                    {% endif %}
                 {% endif %}
+                {% if is_granted('ROLE_USER') %}
                 <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+                {% else %}
+                <li><a href="{{ path('app_inscription') }}">S'inscrire</a></li>
+                <li><a href="{{ path('app_login') }}">Se connecter</a></li>
                 {% endif %}
             </ul>
         </nav>

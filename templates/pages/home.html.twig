@@ -5,43 +5,22 @@
 {% block body %}
         <div class="app">
             <div></div>
-                <div class="app-presentation">
+                <div class="app__header">   
                     <p>
-                        Bienvenue sur le FoodBus DAQ de Luxeuil
-                    </p>
-                </div>
-        </div>
-
-        <div>
-            {% if app.user%}
-                <div class="app__user">
-                    <p>
+                    {% if app.user%}
                         Bonjour
                         {% if (app.user.firstname or app.user.name) %}
                             {{ app.user.firstname }} {{ app.user.name }}
                         {% else %}
                             {{ app.user.email }}
                         {% endif %}
+                    {% endif %}
                     </p>
-                    <a href="{{ path('app_logout') }}" ><button class="myButton">Se déconnecter</button> </a>
+                    <p class="app__presentation">
+                        Bienvenue sur le FoodBus DAQ de Luxeuil
+                    </p>
                 </div>
-            {% else %}
-            <div class="login">
-                <form action="/login">
-                    <button class="myButton"type="submit">Se connecter</button>
-                </form>
-                <form action="/inscription">
-                    <button class="myButton2" type="submit">S'inscrire</button>
-                </form>
-            </div>
-            {% endif %}
         </div>
-
-    <!--<div class="app-presentation">
-        <p>
-            Bienvenue sur le FoodBus DAQ de Luxeuil
-        </p>
-    </div>!-->
 
     <div class="container">
         <h2>Nos nouveautés</h2>
