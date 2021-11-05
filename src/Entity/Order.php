@@ -40,7 +40,7 @@ class Order
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity=OrderProduits::class, mappedBy="command", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=OrderProduits::class, mappedBy="command", orphanRemoval=true, cascade={"persist","remove"})
      */
     private $orderProduits;
 
